@@ -1,0 +1,22 @@
+input_dir: Nfaah
+output_dir: Nfaah
+strings:
+ inputs: Resources/Strings/Localizable.strings
+ outputs:
+   templateName: structured-swift4
+   output: Resources/Strings/Localized.swift
+ fallback: Base
+xcassets:
+ - inputs:
+     - Resources/Assets/Images.xcassets
+     - Resources/Assets/Colors.xcassets
+   outputs:
+     - templateName: swift4
+       output: Resources/Assets/Assets.swift
+      
+fonts:
+ inputs: Resources/Fonts/
+ filter: .+\.otf$
+ outputs:
+   templateName: swift4
+   output:  Resources/fonts/Fonts.swift

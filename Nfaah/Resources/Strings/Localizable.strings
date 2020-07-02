@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  Channels
+
+  Created by Ahmed Refaat on 4/3/20.
+  Copyright © 2020 Ibtikar. All rights reserved.
+*/
+
+// MARK: - Home Screen
+"home.screen.title" = "سلة الطلبات";
+
+// MARK: - Orders Screen
+"order.screen.title.newOrder" = "طلب جديد";
+"order.screen.description.newOrder" = "";
+
+// MARK: - Login Screen
+"login.screen.about" = "عن نغعة";
+"login.screen.contact" = "تواصل معنا";
+"login.screen.login" = "تسجيل الدخول";
+"login.screen.newLogin" = "تسجيل حساب جديد";
+"login.screen.client" = "هل انت عميل ؟";
+
+// MARK: - Sign Screen
+"sign.screen.title" = "تسجيل الدخول";
+"sign.screen.new.title" = "تسجيل حساب جديد";
+"sign.screen.fullName" = "الإسم الكامل";
+"sign.screen.mobile" = "رقم الموبايل";
+"sign.screen.email" = "البريد الإلكترونى";
+"sign.screen.password" = "كلمة المرور";
+"sign.screen.chooseWay" = "أو إختر طريقتك المفضلة للتسجيل";
+
+// MARK: - Profile Screen
+"profile.screen.title" = "حسابى";
+"profile.screen.tabTitle.newOrder" = "طلب جديد";
+"profile.screen.tabSubTitle.newOrder" = "اطلب الان";
+"profile.screen.tabTitle.ourSite" = "موقعنا";
+"profile.screen.tabSubTitle.ourSite" = "زيارة الموقع";
+"profile.screen.tabTitle.rateUs" = "قيمنا";
+"profile.screen.tabSubTitle.rateUs" = "قيم تجربتك معنا";
+"profile.screen.tabTitle.share" = "شاركنا";
+"profile.screen.tabSubTitle.share" = "شارك التطبيق مع اصدقائك";
+"profile.screen.tabTitle.contactUs" = "تواصل معنا";
+"profile.screen.tabSubTitle.contactUs" = "لأى استفسار";
+"profile.screen.tabTitle.about" = "حولنا";
+"profile.screen.tabSubTitle.about" = "من نحن ؟";
+"profile.screen.tabTitle.logout" = "تسجيل الخروج";
+"profile.screen.tabSubTitle.logout" = "الخروج من حسابك والعودة الى صفحة تسجيل الدخول";
