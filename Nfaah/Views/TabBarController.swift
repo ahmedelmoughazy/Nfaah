@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import UIKit
 
 class TabBarController: UITabBarController {
@@ -24,7 +25,7 @@ class TabBarController: UITabBarController {
     let loginNav = UINavigationController()
     
     private var loggedIn: Bool {
-        if UserDefaults.standard.string(forKey: "token") != nil {
+        if Auth.auth().currentUser != nil {
             return true
         } else {
             return false

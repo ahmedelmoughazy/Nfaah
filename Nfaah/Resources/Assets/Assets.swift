@@ -26,6 +26,7 @@ internal enum Asset {
     internal static let tunaColor = ColorAsset(name: "TunaColor")
   }
   internal enum Images {
+    internal static let about = ImageAsset(name: "about")
     internal static let app = ImageAsset(name: "app")
     internal static let backArrow = ImageAsset(name: "back_arrow")
     internal static let group = ImageAsset(name: "group")
@@ -41,7 +42,12 @@ internal enum Asset {
     internal static let icTabbarSelectedProfile = ImageAsset(name: "ic_tabbar_selected_profile")
     internal static let icTabbarUnselectedProfile = ImageAsset(name: "ic_tabbar_unselected_profile")
     internal static let logo = ImageAsset(name: "logo")
+    internal static let logout = ImageAsset(name: "logout")
     internal static let profilePlaceholder = ImageAsset(name: "profile_placeholder")
+    internal static let rate = ImageAsset(name: "rate")
+    internal static let share = ImageAsset(name: "share")
+    internal static let support = ImageAsset(name: "support")
+    internal static let website = ImageAsset(name: "website")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

@@ -25,6 +25,10 @@ class UserLoginRegisterScenePresenter: BasePresenter, UserLoginRegisterScenePres
         view.setUpView(with: screenType)
     }
     
+    func logUserIn() {
+        delegate?.logUserIn()
+    }
+    
     func dismissView() {
         delegate?.dismissView()
     }

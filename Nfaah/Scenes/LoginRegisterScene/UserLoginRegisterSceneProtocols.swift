@@ -21,6 +21,7 @@ protocol UserLoginRegisterSceneViewProtocol: BaseViewProtocol {
 }
 protocol UserLoginRegisterSceneVCDelegate: class {
     func dismissView()
+    func logUserIn()
 }
 
 enum AuthType {

@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="chooseAnotherWayLabel" destination="JSl-IF-TLQ" id="xbX-Hb-xoh"/>
                 <outlet property="emailTextField" destination="mEJ-Bi-t5y" id="5rL-ov-evX"/>
+                <outlet property="googleSignInButton" destination="hNq-Dt-2WP" id="1Uj-gP-1vD"/>
                 <outlet property="mobileTextField" destination="9eu-VT-vwX" id="8C3-TT-9l2"/>
                 <outlet property="mobileView" destination="xmn-lh-kxk" id="7rT-Zd-Mjp"/>
                 <outlet property="nameTextField" destination="PdI-wg-Son" id="YYP-C6-Q1h"/>
@@ -207,6 +208,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNq-Dt-2WP" customClass="GIDSignInButton">
+                    <rect key="frame" x="20" y="342" width="335" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Abo-y6-QDa"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -215,9 +223,12 @@
                 <constraint firstItem="com-NB-ByE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Auv-MN-AZE"/>
                 <constraint firstItem="JSl-IF-TLQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cf1-Hf-Uoq"/>
                 <constraint firstAttribute="trailing" secondItem="KDW-Ld-Nit" secondAttribute="trailing" id="HSs-dz-ibF"/>
+                <constraint firstItem="hNq-Dt-2WP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="XfD-8M-tK6"/>
                 <constraint firstItem="KDW-Ld-Nit" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a9Q-V3-deq"/>
                 <constraint firstAttribute="trailing" secondItem="qqi-Td-avJ" secondAttribute="trailing" constant="20" id="d37-ws-6hu"/>
+                <constraint firstItem="hNq-Dt-2WP" firstAttribute="top" secondItem="JSl-IF-TLQ" secondAttribute="bottom" constant="16" id="hXJ-or-t3E"/>
                 <constraint firstAttribute="trailing" secondItem="com-NB-ByE" secondAttribute="trailing" constant="15" id="j3C-DT-w50"/>
+                <constraint firstAttribute="trailing" secondItem="hNq-Dt-2WP" secondAttribute="trailing" constant="20" id="lTR-zm-GyO"/>
                 <constraint firstItem="KDW-Ld-Nit" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mFF-gA-77z"/>
                 <constraint firstItem="com-NB-ByE" firstAttribute="top" secondItem="KDW-Ld-Nit" secondAttribute="bottom" id="pEh-Fd-0dv"/>
                 <constraint firstItem="qqi-Td-avJ" firstAttribute="top" secondItem="com-NB-ByE" secondAttribute="bottom" constant="6" id="wym-v6-O2g"/>

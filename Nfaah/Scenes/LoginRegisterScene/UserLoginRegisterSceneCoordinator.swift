@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nfaah. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class UserLoginRegisterSceneCoordinator: Coordinator {
     var appRouter: AppRouter
@@ -37,6 +37,11 @@ class UserLoginRegisterSceneCoordinator: Coordinator {
 }
 // MARK: - Delegetes
 extension UserLoginRegisterSceneCoordinator: UserLoginRegisterSceneVCDelegate {
+    func logUserIn() {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.applicationCoordinator?.logUserIn()
+    }
+    
     func dismissView() {
         appRouter.pop()
     }

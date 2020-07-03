@@ -7,4 +7,11 @@ target 'Nfaah' do
 
   # Pods for Nfaah
   pod 'Moya', '~> 14.0'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'GoogleSignIn'
+  pod 'SDWebImage', '~> 5.8'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 end

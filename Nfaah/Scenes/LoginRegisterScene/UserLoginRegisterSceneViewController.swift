@@ -8,15 +8,18 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FBSDKLoginKit
+import GoogleSignIn
 
 class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegisterScenePresenter> {
     
     // MARK: - Public Variables
-
+    
     // MARK: - Private Variables
-
+    
     // MARK: - Computed Variables
-
+    
     // MARK: - IBOutlets
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var nameView: UIView!
@@ -27,11 +30,9 @@ class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegister
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var signButton: UIButton!
     @IBOutlet weak private var chooseAnotherWayLabel: UILabel!
-
-    // MARK: - Custom Setter
-
+    @IBOutlet weak private var googleSignInButton: GIDSignInButton!
+    
     // MARK: - View controller lifecycle methods
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.tabBarController?.navigationController?.navigationBar.isHidden = true
@@ -40,6 +41,8 @@ class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegister
         self.navigationController?.navigationBar.isHidden = true
         
         presenter.viewDidLoad()
+        setupGoogleSignIn()
+        setupFaceBookSignIn()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,7 +61,66 @@ extension UserLoginRegisterSceneViewController {
 
 // MARK: - Private
 extension UserLoginRegisterSceneViewController {
-
+    private func setupGoogleSignIn() {
+        GIDSignIn.sharedInstance().presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
+    }
+    
+    private func setupFaceBookSignIn() {
+        let faceBookSignInButton = FBLoginButton(permissions: ["public_profile", "email"])
+        view.addSubview(faceBookSignInButton)
+        
+        faceBookSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        let top = NSLayoutConstraint(item: faceBookSignInButton,
+                                     attribute: .top,
+                                     relatedBy: .equal,
+                                     toItem: googleSignInButton,
+                                     attribute: .bottom, multiplier: 1,
+                                     constant: 16)
+        
+        let leading = NSLayoutConstraint(item: faceBookSignInButton,
+                                         attribute: .leading, relatedBy: .equal,
+                                         toItem: view,
+                                         attribute: .leading,
+                                         multiplier: 1,
+                                         constant: 20)
+        let trailing = NSLayoutConstraint(item: faceBookSignInButton,
+                                          attribute: .trailing, relatedBy: .equal,
+                                          toItem: view,
+                                          attribute: .trailing,
+                                          multiplier: 1,
+                                          constant: 20)
+        
+        let width = NSLayoutConstraint(item: faceBookSignInButton,
+                                       attribute: .width,
+                                       relatedBy: .equal,
+                                       toItem: googleSignInButton,
+                                       attribute: .width,
+                                       multiplier: 1,
+                                       constant: 0)
+        
+        let height = NSLayoutConstraint(item: faceBookSignInButton,
+                                        attribute: .height, relatedBy: .equal,
+                                        toItem: nil,
+                                        attribute: .notAnAttribute,
+                                        multiplier: 1,
+                                        constant: 50)
+        NSLayoutConstraint.activate([top, leading, trailing, width, height])
+        
+        faceBookSignInButton.delegate = self
+    }
+    
+    private func sendFIRAuthCredential(credentials: AuthCredential) {
+        Auth.auth().signIn(with: credentials) { (authResult, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Login Successful.")
+                //successful login
+                self.presenter.logUserIn()
+            }
+        }
+    }
 }
 
 // MARK: - Protocal
@@ -101,5 +163,43 @@ extension UserLoginRegisterSceneViewController: UserLoginRegisterSceneViewProtoc
         signButton.layer.shadowOpacity = 1.0
         signButton.layer.shadowRadius = 0.0
         signButton.layer.masksToBounds = false
+    }
+}
+
+// MARK: - Google Sign In
+extension UserLoginRegisterSceneViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        // Perform any operations on signed in user here.
+        //        let userId = user.userID                  // For client-side use only!
+        //        let idToken = user.authentication.idToken // Safe to send to the server
+        //        let fullName = user.profile.name
+        //        let givenName = user.profile.givenName
+        //        let familyName = user.profile.familyName
+        //        let email = user.profile.email
+        
+        guard let auth = user.authentication else { return }
+        let credentials = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
+        sendFIRAuthCredential(credentials: credentials)
+    }
+}
+
+// MARK: - FaceBook Sign In
+extension UserLoginRegisterSceneViewController: LoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        let credentials = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        sendFIRAuthCredential(credentials: credentials)
     }
 }

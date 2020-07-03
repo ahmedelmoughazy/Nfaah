@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FBSDKLoginKit
 import UIKit
 
 class ApplicationCoordinator: Coordinator {
@@ -40,8 +42,22 @@ extension ApplicationCoordinator {
 }
 
 extension ApplicationCoordinator {
+    func logUserIn() {
+        tabCoordinator = TabBarCoordinator(router: appRouter)
+        tabCoordinator?.startInProfile()
+        window?.rootViewController = appRouter.toPresentable()
+    }
+    
     func logoutUnauthedUser() {
-        UserDefaults.standard.removeObject(forKey: "token")
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            LoginManager().logOut()
+            print("signed out")
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        
         tabCoordinator = TabBarCoordinator(router: appRouter)
         tabCoordinator?.startInProfile()
         window?.rootViewController = appRouter.toPresentable()

@@ -15,37 +15,37 @@ class ProfileModel: BaseModel, ProfileModelProtocol {
         
         var profileItems = [ProfileItem]()
         
-        let order = ProfileItem(image: Asset.Images.icFacebook.name,
+        let order = ProfileItem(image: Asset.Images.icCartUnselected.name,
                                 title: L10n.Profile.Screen.TabTitle.newOrder,
                                 subTitle: L10n.Profile.Screen.TabSubTitle.newOrder,
                                 type: .order)
         
-        let site = ProfileItem(image: Asset.Images.icFacebook.name,
+        let site = ProfileItem(image: Asset.Images.website.name,
                                title: L10n.Profile.Screen.TabTitle.ourSite,
                                subTitle: L10n.Profile.Screen.TabSubTitle.ourSite,
                                type: .site)
         
-        let rate = ProfileItem(image: Asset.Images.icFacebook.name,
+        let rate = ProfileItem(image: Asset.Images.rate.name,
                                title: L10n.Profile.Screen.TabTitle.rateUs,
                                subTitle: L10n.Profile.Screen.TabSubTitle.rateUs,
                                type: .rate)
         
-        let share = ProfileItem(image: Asset.Images.icFacebook.name,
+        let share = ProfileItem(image: Asset.Images.share.name,
                                 title: L10n.Profile.Screen.TabTitle.share,
                                 subTitle: L10n.Profile.Screen.TabSubTitle.share,
                                 type: .share)
         
-        let contactUs = ProfileItem(image: Asset.Images.icFacebook.name,
+        let contactUs = ProfileItem(image: Asset.Images.support.name,
                                     title: L10n.Profile.Screen.TabTitle.contactUs,
                                     subTitle: L10n.Profile.Screen.TabSubTitle.contactUs,
                                     type: .contactUs)
         
-        let about = ProfileItem(image: Asset.Images.icFacebook.name,
+        let about = ProfileItem(image: Asset.Images.about.name,
                                 title: L10n.Profile.Screen.TabTitle.about,
                                 subTitle: L10n.Profile.Screen.TabSubTitle.about,
                                 type: .about)
         
-        let logOut = ProfileItem(image: Asset.Images.icFacebook.name,
+        let logOut = ProfileItem(image: Asset.Images.logout.name,
                                  title: L10n.Profile.Screen.TabTitle.logout,
                                  subTitle: L10n.Profile.Screen.TabSubTitle.logout,
                                  type: .logOut)

@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
+import GoogleSignIn
+import FirebaseAuth
+import SDWebImage
 
 class ProfileViewController: BaseViewController<ProfilePresenter> {
     
@@ -39,17 +42,38 @@ extension ProfileViewController {
 // MARK: - Private
 extension ProfileViewController {
     private func setUpView() {
+            
+//        if let providerData = Auth.auth().currentUser?.providerData {
+//            for userInfo in providerData {
+//                switch userInfo.providerID {
+//                case "facebook.com":
+//                    print("Facebook Login")
+//                    //isVerifiededUser = true
+//                default:
+//                    print("provider is \(userInfo.providerID)")
+//                }
+//            }
+//        }
+           
+        let user = Auth.auth().currentUser
+        
         titleLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
         titleLabel.text = L10n.Profile.Screen.title
         
         nameLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
-        nameLabel.text = L10n.Profile.Screen.title
+        nameLabel.text = user?.displayName
         
         emailLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
-        emailLabel.text = L10n.Profile.Screen.title
+        emailLabel.text = user?.email
         
         userImage.image = Asset.Images.profilePlaceholder.image
         userImage.layer.cornerRadius = userImage.frame.height / 2
+        
+        let stringUrl = (user?.photoURL?.absoluteString ?? "") + "?type=large"
+        let photoUrl = URL(string: stringUrl.replacingOccurrences(of: "s96-c", with: "s240-c"))
+        userImage.sd_setImage(with: photoUrl,
+                              placeholderImage: Asset.Images.profilePlaceholder.image,
+                              options: .scaleDownLargeImages, completed: nil)
         
         self.adaptor.setAdaptorTableView(tableView: self.profileTableView)
 
