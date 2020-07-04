@@ -11,7 +11,8 @@ import UIKit
 class ProfileCoordinator: Coordinator {
     var appRouter: AppRouter
     var viewcontroller: ProfileViewController?
-    
+    var newOrderCoordinator: NewOrderCoordinator?
+
     init(appRouter: AppRouter) {
         self.appRouter = appRouter
     }
@@ -36,6 +37,12 @@ class ProfileCoordinator: Coordinator {
 extension ProfileCoordinator: ProfileVCDelegate {
     func dismissView() {
         appRouter.pop()
+    }
+    
+    func showNewOrder() {
+        let newOrderCoordinator = NewOrderCoordinator(appRouter: appRouter)
+        self.newOrderCoordinator = newOrderCoordinator
+        newOrderCoordinator.start()
     }
     
     func logout() {

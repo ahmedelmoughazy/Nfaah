@@ -13,10 +13,26 @@ class HomePresenter: BasePresenter, HomePresenterProtocol {
     private var view: HomeViewProtocol?
     private var model: HomeModelProtocol?
     weak var delegate: HomeVCDelegate?
-
+    
     init(view: HomeViewProtocol, model: HomeModelProtocol) {
         self.view = view
         self.model = model
     }
-
+    
+    func getOrders() {
+        view?.renderViewWithData(data: [Order]())
+        self.view?.showLoading?(allowNavigation: false)
+        model?.getOrders() { result in
+            switch result {
+            case .success(let orders):
+                self.view?.clearData()
+                self.view?.renderViewWithData(data: orders)
+            case .failure(let error):
+                print("\(error)")
+//                self.checkErrors(error: error)
+            }
+            self.view?.hideLoading?()
+        }
+    }
+    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UserLoginRegisterSceneModelProtocol: BaseModelProtocol {
-
+    func signIn(with user: User)
 }
 
 protocol UserLoginRegisterScenePresenterProtocol: BasePresenterProtocol {

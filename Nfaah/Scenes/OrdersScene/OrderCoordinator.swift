@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class OrderCoordinator: Coordinator {
     var appRouter: AppRouter
     var viewcontroller: OrderViewController?
+    var newOrderCoordinator: NewOrderCoordinator?
     
     init(appRouter: AppRouter) {
         self.appRouter = appRouter
@@ -34,6 +36,18 @@ class OrderCoordinator: Coordinator {
 }
 // MARK: - Delegetes
 extension OrderCoordinator: OrderVCDelegate {
+    func showNewOrder() {
+        if Auth.auth().currentUser != nil {
+            let newOrderCoordinator = NewOrderCoordinator(appRouter: appRouter)
+            self.newOrderCoordinator = newOrderCoordinator
+            newOrderCoordinator.start()
+        } else {
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.applicationCoordinator?.logUserIn()
+        }
+
+    }
+    
     func dismissView() {
         appRouter.pop()
     }

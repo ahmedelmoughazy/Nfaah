@@ -21,6 +21,7 @@ protocol ProfileViewProtocol: BaseViewProtocol {
     func renderViewWith(items: [ProfileItem])
 }
 protocol ProfileVCDelegate: class {
+    func showNewOrder()
     func dismissView()
     func logout()
 }

@@ -17,8 +17,8 @@ class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegister
     // MARK: - Public Variables
     
     // MARK: - Private Variables
-    
-    // MARK: - Computed Variables
+    private var textFields = [UITextField]()
+    private var type: AuthType?
     
     // MARK: - IBOutlets
     @IBOutlet weak private var titleLabel: UILabel!
@@ -30,6 +30,7 @@ class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegister
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var signButton: UIButton!
     @IBOutlet weak private var chooseAnotherWayLabel: UILabel!
+    @IBOutlet weak private var socialButtonsStackView: UIStackView!
     @IBOutlet weak private var googleSignInButton: GIDSignInButton!
     
     // MARK: - View controller lifecycle methods
@@ -50,6 +51,10 @@ class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegister
         self.navigationController?.tabBarController?.tabBar.isHidden = false
         self.navigationController?.tabBarController?.tabBar.isTranslucent = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
 }
 
 // MARK: - IBActions
@@ -57,6 +62,26 @@ extension UserLoginRegisterSceneViewController {
     @IBAction func backButtonAction(_ sender: UIButton) {
         presenter.dismissView()
     }
+    
+    @IBAction func signInOrRegisterAction(_ sender: UIButton) {
+        let allHaveText = textFields.allSatisfy { $0.text?.isEmpty == false }
+        
+        if allHaveText {
+            self.showLoading(allowNavigation: false)
+            switch type {
+            case .login:
+                signInAuth()
+            case .register:
+                signUpAuth()
+            default:
+                print("Not Valid Type")
+            }
+        } else {
+            showErrorMassege(errorMessage: L10n.Sign.Screen.emptyFields)
+        }
+        
+    }
+    
 }
 
 // MARK: - Private
@@ -67,47 +92,41 @@ extension UserLoginRegisterSceneViewController {
     }
     
     private func setupFaceBookSignIn() {
-        let faceBookSignInButton = FBLoginButton(permissions: ["public_profile", "email"])
-        view.addSubview(faceBookSignInButton)
-        
-        faceBookSignInButton.translatesAutoresizingMaskIntoConstraints = false
-        let top = NSLayoutConstraint(item: faceBookSignInButton,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: googleSignInButton,
-                                     attribute: .bottom, multiplier: 1,
-                                     constant: 16)
-        
-        let leading = NSLayoutConstraint(item: faceBookSignInButton,
-                                         attribute: .leading, relatedBy: .equal,
-                                         toItem: view,
-                                         attribute: .leading,
-                                         multiplier: 1,
-                                         constant: 20)
-        let trailing = NSLayoutConstraint(item: faceBookSignInButton,
-                                          attribute: .trailing, relatedBy: .equal,
-                                          toItem: view,
-                                          attribute: .trailing,
-                                          multiplier: 1,
-                                          constant: 20)
-        
-        let width = NSLayoutConstraint(item: faceBookSignInButton,
-                                       attribute: .width,
-                                       relatedBy: .equal,
-                                       toItem: googleSignInButton,
-                                       attribute: .width,
-                                       multiplier: 1,
-                                       constant: 0)
-        
-        let height = NSLayoutConstraint(item: faceBookSignInButton,
-                                        attribute: .height, relatedBy: .equal,
-                                        toItem: nil,
-                                        attribute: .notAnAttribute,
-                                        multiplier: 1,
-                                        constant: 50)
-        NSLayoutConstraint.activate([top, leading, trailing, width, height])
-        
+        let faceBookSignInButton = FacebookButton(permissions: ["public_profile", "email"])
+        faceBookSignInButton.heightAnchor.constraint(equalToConstant: 42).isActive = true
+        faceBookSignInButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 46).isActive = true
+        socialButtonsStackView.addArrangedSubview(faceBookSignInButton)
         faceBookSignInButton.delegate = self
+    }
+    
+    private func signInAuth() {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            //successful login
+            strongSelf.hideLoading()
+            let user = User(email: email, name: authResult?.user.displayName)
+            strongSelf.presenter.logUserIn(user: user)
+        }
+    }
+    
+    private func signUpAuth() {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            guard error == nil else {
+                self.hideLoading()
+                self.showErrorMassege(errorMessage: error!.localizedDescription)
+                return
+            }
+            //successful login
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = self.nameTextField.text
+            changeRequest?.commitChanges { (error) in
+                self.hideLoading()
+                let user = User(email: email, name: authResult?.user.displayName, phone: self.mobileTextField.text)
+                self.presenter.logUserIn(user: user)
+            }
+        }
     }
     
     private func sendFIRAuthCredential(credentials: AuthCredential) {
@@ -115,9 +134,12 @@ extension UserLoginRegisterSceneViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("Login Successful.")
                 //successful login
-                self.presenter.logUserIn()
+                let user = User(email: authResult?.user.email,
+                                name: authResult?.user.displayName,
+                                image: authResult?.user.photoURL?.absoluteString,
+                                phone: authResult?.user.phoneNumber)
+                self.presenter.logUserIn(user: user)
             }
         }
     }
@@ -127,23 +149,12 @@ extension UserLoginRegisterSceneViewController {
 extension UserLoginRegisterSceneViewController: UserLoginRegisterSceneViewProtocol {
     func setUpView(with type: AuthType) {
         
+        self.type = type
+        
         titleLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
         
         chooseAnotherWayLabel.font = FontFamily._29LTAzer.regular.font(size: 15)
         chooseAnotherWayLabel.text = L10n.Sign.Screen.chooseWay
-        
-        switch type {
-        case .login:
-            nameView.isHidden = true
-            mobileView.isHidden = true
-            titleLabel.text = L10n.Sign.Screen.title
-            signButton.setTitle(L10n.Sign.Screen.title, for: .normal)
-        case .register:
-            nameView.isHidden = false
-            mobileView.isHidden = false
-            titleLabel.text = L10n.Sign.Screen.New.title
-            signButton.setTitle(L10n.Sign.Screen.New.title, for: .normal)
-        }
         
         nameTextField.font = FontFamily._29LTAzer.medium.font(size: 17)
         nameTextField.placeholder = L10n.Sign.Screen.fullName
@@ -156,6 +167,27 @@ extension UserLoginRegisterSceneViewController: UserLoginRegisterSceneViewProtoc
         
         passwordTextField.font = FontFamily._29LTAzer.medium.font(size: 17)
         passwordTextField.placeholder = L10n.Sign.Screen.password
+        
+        switch type {
+        case .login:
+            nameView.isHidden = true
+            mobileView.isHidden = true
+            titleLabel.text = L10n.Sign.Screen.title
+            signButton.setTitle(L10n.Sign.Screen.title, for: .normal)
+            
+            textFields.append(emailTextField)
+            textFields.append(passwordTextField)
+        case .register:
+            nameView.isHidden = false
+            mobileView.isHidden = false
+            titleLabel.text = L10n.Sign.Screen.New.title
+            signButton.setTitle(L10n.Sign.Screen.New.title, for: .normal)
+            
+            textFields.append(nameTextField)
+            textFields.append(mobileTextField)
+            textFields.append(emailTextField)
+            textFields.append(passwordTextField)
+        }
         
         signButton.titleLabel?.font = FontFamily._29LTAzer.regular.font(size: 17)
         signButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -199,7 +231,32 @@ extension UserLoginRegisterSceneViewController: LoginButtonDelegate {
             print(error.localizedDescription)
             return
         }
-        let credentials = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        
+        guard let token = AccessToken.current?.tokenString else { return }
+        
+        let credentials = FacebookAuthProvider.credential(withAccessToken: token)
         sendFIRAuthCredential(credentials: credentials)
     }
+}
+
+// MARK: - TextFields Delegate
+extension UserLoginRegisterSceneViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nameTextField:
+            nameTextField.becomeFirstResponder()
+        case mobileTextField:
+            mobileTextField.becomeFirstResponder()
+        case passwordTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            emailTextField.becomeFirstResponder()
+        default:
+            emailTextField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
 }

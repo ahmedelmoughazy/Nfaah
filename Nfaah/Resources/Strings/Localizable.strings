@@ -8,10 +8,28 @@
 
 // MARK: - Home Screen
 "home.screen.title" = "سلة الطلبات";
+"home.screen.noOrders" = "لا يوجد طلبات";
 
 // MARK: - Orders Screen
 "order.screen.title.newOrder" = "طلب جديد";
-"order.screen.description.newOrder" = "";
+"order.screen.description.newOrder" = "توفر منصة نفعة تجربة فريدة للطلب عبر الانترنت بكل سهولة وأمان
+نستقبل طلبك مع كافة التفاصيل الاضافية ونقوم بتوصيله اليك حالا.";
+"order.screen.newOrder" = "اطلب الان";
+
+// MARK: - New Order
+"newOrder.screen.name" = "الاسم";
+"newOrder.screen.mobile" = "رقم الهاتف";
+"newOrder.screen.orderPlace" = "من اين تريد الطلب";
+"newOrder.screen.placeName" = "اسم المحل";
+"newOrder.screen.placeAddress" = "عنوان المحل";
+"newOrder.screen.yourOrder" = "طلبك";
+"newOrder.screen.chooseImage" = "اضافة صورة";
+"newOrder.screen.imageChoosen" = "تمت اضافة صورة";
+"newOrder.screen.deliveryTime" = "اختار وقت التسليم";
+"newOrder.screen.done" = "تم";
+"newOrder.screen.yourLocation" = "تحديث الموقع";
+"newOrder.screen.submit" = "رفع الطلب";
+"newOrder.screen.order.pending" = "قيد الإنتظار";
 
 // MARK: - Login Screen
 "login.screen.about" = "عن نغعة";
@@ -28,6 +46,7 @@
 "sign.screen.email" = "البريد الإلكترونى";
 "sign.screen.password" = "كلمة المرور";
 "sign.screen.chooseWay" = "أو إختر طريقتك المفضلة للتسجيل";
+"sign.screen.emptyFields" = "الرجاء ملئ كافة الخانات";
 
 // MARK: - Profile Screen
 "profile.screen.title" = "حسابى";

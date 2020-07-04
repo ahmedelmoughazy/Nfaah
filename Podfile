@@ -6,7 +6,7 @@ target 'Nfaah' do
   use_frameworks!
 
   # Pods for Nfaah
-  pod 'Moya', '~> 14.0'
+  pod 'Toast-Swift', '~> 5.0.1'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'

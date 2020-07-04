@@ -30,7 +30,7 @@ class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
         
         switch selectedItem.type {
         case .order:
-            print("\(selectedItem.type)")
+            delegate?.showNewOrder()
         case .site:
             print("\(selectedItem.type)")
         case .rate:

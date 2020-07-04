@@ -19,4 +19,7 @@ class OrderPresenter: BasePresenter, OrderPresenterProtocol {
         self.model = model
     }
 
+    func showNewOrder() {
+        delegate?.showNewOrder()
+    }
 }

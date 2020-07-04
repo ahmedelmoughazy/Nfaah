@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>839127935784-au2khbauia3l9jg2uol1i03a3j9f6eha.apps.googleusercontent.com</string>
+	<string>949919370894-k14rehqitvf49uahlu1675ma0d2qsfqn.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.839127935784-au2khbauia3l9jg2uol1i03a3j9f6eha</string>
+	<string>com.googleusercontent.apps.949919370894-k14rehqitvf49uahlu1675ma0d2qsfqn</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD0DWHgKLviRaMRPfgfZDZw-bmKP0_KzKE</string>
+	<string>AIzaSyAITWYWNuJ32OufguUN5fT430K0lWwTNc0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>839127935784</string>
+	<string>949919370894</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.nfaah.Nfaah</string>
 	<key>PROJECT_ID</key>
-	<string>nfaah-a6e8c</string>
+	<string>nfaah-8af44</string>
 	<key>STORAGE_BUCKET</key>
-	<string>nfaah-a6e8c.appspot.com</string>
+	<string>nfaah-8af44.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:839127935784:ios:bb92768b34b1f13d92fe1d</string>
+	<string>1:949919370894:ios:73960706300610decb43df</string>
 	<key>DATABASE_URL</key>
-	<string>https://nfaah-a6e8c.firebaseio.com</string>
+	<string>https://nfaah-8af44.firebaseio.com</string>
 </dict>
 </plist>

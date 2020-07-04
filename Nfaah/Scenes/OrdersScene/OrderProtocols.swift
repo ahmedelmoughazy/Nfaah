@@ -20,5 +20,6 @@ protocol OrderViewProtocol: BaseViewProtocol {
 
 }
 protocol OrderVCDelegate: class {
+    func showNewOrder()
     func dismissView()
 }

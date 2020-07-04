@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderViewController" customModule="Nfaah" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionLabel" destination="tVb-fG-KRW" id="PKB-FV-qrJ"/>
+                <outlet property="newOrderButton" destination="nQa-mQ-q0e" id="LYo-xh-aJk"/>
                 <outlet property="titleLabel" destination="fDN-HA-zb1" id="6UV-Ji-mE3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,17 +38,49 @@
                         <constraint firstItem="fDN-HA-zb1" firstAttribute="centerX" secondItem="bYg-f8-6mD" secondAttribute="centerX" id="Y7w-IP-lSD"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVb-fG-KRW">
+                    <rect key="frame" x="187.66666666666666" y="397.66666666666669" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpA-kX-VYJ">
+                    <rect key="frame" x="20" y="405.66666666666669" width="335" height="1"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="B5f-O1-t2C"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-mQ-q0e">
+                    <rect key="frame" x="169.66666666666666" y="414.66666666666669" width="36" height="40"/>
+                    <color key="backgroundColor" name="BahamaBlue"/>
+                    <inset key="contentEdgeInsets" minX="6" minY="8" maxX="6" maxY="8"/>
+                    <state key="normal" image="ic_cart_selected">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="orderAction:" destination="-1" eventType="touchUpInside" id="pqB-WI-dCx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="tVb-fG-KRW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2sA-7K-4SA"/>
                 <constraint firstAttribute="trailing" secondItem="bYg-f8-6mD" secondAttribute="trailing" id="8fF-VP-qnR"/>
+                <constraint firstItem="nQa-mQ-q0e" firstAttribute="top" secondItem="GpA-kX-VYJ" secondAttribute="bottom" constant="8" id="EyP-cE-KGq"/>
+                <constraint firstItem="GpA-kX-VYJ" firstAttribute="top" secondItem="tVb-fG-KRW" secondAttribute="bottom" constant="8" id="L9C-p3-vWQ"/>
                 <constraint firstItem="bYg-f8-6mD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QXq-Ja-JGn"/>
+                <constraint firstItem="GpA-kX-VYJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XKQ-FC-kQA"/>
                 <constraint firstItem="bYg-f8-6mD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cvp-L5-OPx"/>
+                <constraint firstItem="GpA-kX-VYJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="jO0-tL-JxS"/>
+                <constraint firstAttribute="trailing" secondItem="GpA-kX-VYJ" secondAttribute="trailing" constant="20" id="o65-rx-I0F"/>
+                <constraint firstItem="nQa-mQ-q0e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zSW-Ha-rlQ"/>
             </constraints>
             <point key="canvasLocation" x="138" y="140"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_cart_selected" width="24" height="24"/>
         <namedColor name="BahamaBlue">
             <color red="0.12549019607843137" green="0.28627450980392155" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

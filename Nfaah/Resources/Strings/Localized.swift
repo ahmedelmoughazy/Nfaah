@@ -14,6 +14,8 @@ internal enum L10n {
 
   internal enum Home {
     internal enum Screen {
+      /// لا يوجد طلبات
+      internal static let noOrders = L10n.tr("Localizable", "home.screen.noOrders")
       /// سلة الطلبات
       internal static let title = L10n.tr("Localizable", "home.screen.title")
     }
@@ -34,10 +36,45 @@ internal enum L10n {
     }
   }
 
+  internal enum NewOrder {
+    internal enum Screen {
+      /// اضافة صورة
+      internal static let chooseImage = L10n.tr("Localizable", "newOrder.screen.chooseImage")
+      /// اختار وقت التسليم
+      internal static let deliveryTime = L10n.tr("Localizable", "newOrder.screen.deliveryTime")
+      /// تم
+      internal static let done = L10n.tr("Localizable", "newOrder.screen.done")
+      /// تمت اضافة صورة
+      internal static let imageChoosen = L10n.tr("Localizable", "newOrder.screen.imageChoosen")
+      /// رقم الهاتف
+      internal static let mobile = L10n.tr("Localizable", "newOrder.screen.mobile")
+      /// الاسم
+      internal static let name = L10n.tr("Localizable", "newOrder.screen.name")
+      /// من اين تريد الطلب
+      internal static let orderPlace = L10n.tr("Localizable", "newOrder.screen.orderPlace")
+      /// عنوان المحل
+      internal static let placeAddress = L10n.tr("Localizable", "newOrder.screen.placeAddress")
+      /// اسم المحل
+      internal static let placeName = L10n.tr("Localizable", "newOrder.screen.placeName")
+      /// رفع الطلب
+      internal static let submit = L10n.tr("Localizable", "newOrder.screen.submit")
+      /// تحديث الموقع
+      internal static let yourLocation = L10n.tr("Localizable", "newOrder.screen.yourLocation")
+      /// طلبك
+      internal static let yourOrder = L10n.tr("Localizable", "newOrder.screen.yourOrder")
+      internal enum Order {
+        /// قيد الإنتظار
+        internal static let pending = L10n.tr("Localizable", "newOrder.screen.order.pending")
+      }
+    }
+  }
+
   internal enum Order {
     internal enum Screen {
+      /// اطلب الان
+      internal static let newOrder = L10n.tr("Localizable", "order.screen.newOrder")
       internal enum Description {
-        /// 
+        /// توفر منصة نفعة تجربة فريدة للطلب عبر الانترنت بكل سهولة وأمان\nنستقبل طلبك مع كافة التفاصيل الاضافية ونقوم بتوصيله اليك حالا.
         internal static let newOrder = L10n.tr("Localizable", "order.screen.description.newOrder")
       }
       internal enum Title {
@@ -92,6 +129,8 @@ internal enum L10n {
       internal static let chooseWay = L10n.tr("Localizable", "sign.screen.chooseWay")
       /// البريد الإلكترونى
       internal static let email = L10n.tr("Localizable", "sign.screen.email")
+      /// الرجاء ملئ كافة الخانات
+      internal static let emptyFields = L10n.tr("Localizable", "sign.screen.emptyFields")
       /// الإسم الكامل
       internal static let fullName = L10n.tr("Localizable", "sign.screen.fullName")
       /// رقم الموبايل

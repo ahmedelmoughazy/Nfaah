@@ -9,5 +9,8 @@
 import Foundation
 
 class UserLoginRegisterSceneModel: BaseModel, UserLoginRegisterSceneModelProtocol {
-
+    
+    func signIn(with user: User) {
+        FireBaseService.shared.addToDataBase(user: user)
+    }
 }

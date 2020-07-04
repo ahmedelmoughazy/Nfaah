@@ -25,7 +25,8 @@ class UserLoginRegisterScenePresenter: BasePresenter, UserLoginRegisterScenePres
         view.setUpView(with: screenType)
     }
     
-    func logUserIn() {
+    func logUserIn(user: User) {
+        model.signIn(with: user)
         delegate?.logUserIn()
     }
     

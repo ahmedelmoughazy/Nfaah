@@ -42,18 +42,6 @@ extension ProfileViewController {
 // MARK: - Private
 extension ProfileViewController {
     private func setUpView() {
-            
-//        if let providerData = Auth.auth().currentUser?.providerData {
-//            for userInfo in providerData {
-//                switch userInfo.providerID {
-//                case "facebook.com":
-//                    print("Facebook Login")
-//                    //isVerifiededUser = true
-//                default:
-//                    print("provider is \(userInfo.providerID)")
-//                }
-//            }
-//        }
            
         let user = Auth.auth().currentUser
         
