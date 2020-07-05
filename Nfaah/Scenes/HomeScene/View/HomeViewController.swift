@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController<HomePresenter> {
     
     // MARK: - Private Variables
     private var adaptor = OrdersTableViewAdaptor()
-
+    
     private var noDataView: UIView = {
         var noDataView = UIView(frame: UIScreen.main.bounds)
         let label = UILabel(frame: CGRect(x: 0, y: UIScreen.main.bounds.height / 3, width: 200, height: 24))

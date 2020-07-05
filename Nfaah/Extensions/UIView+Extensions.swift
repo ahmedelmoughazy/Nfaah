@@ -16,4 +16,17 @@ extension UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
+    
+    func setCornerRadious(radious: CGFloat, hasShadow: Bool) {
+        self.layer.cornerRadius = radious
+        self.layer.masksToBounds = true
+        
+        self.clipsToBounds = false
+        
+        if !hasShadow { return }
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.4
+    }
 }
