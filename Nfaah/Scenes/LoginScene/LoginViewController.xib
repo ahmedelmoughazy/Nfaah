@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Nfaah" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="نفعة" customModuleProvider="target">
             <connections>
                 <outlet property="aboutButton" destination="CwD-Dx-3Dk" id="8zo-uR-N4n"/>
                 <outlet property="clientButton" destination="nXa-C6-NGq" id="blL-uk-GAv"/>
@@ -30,7 +30,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwD-Dx-3Dk">
-                    <rect key="frame" x="15" y="235" width="30" height="30"/>
+                    <rect key="frame" x="15" y="235" width="345" height="30"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -46,7 +46,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjj-Ng-acb">
-                    <rect key="frame" x="15" y="278" width="30" height="30"/>
+                    <rect key="frame" x="15" y="278" width="345" height="30"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -87,7 +87,7 @@
                         <action selector="registerAction:" destination="-1" eventType="touchUpInside" id="j0H-4t-iA7"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXa-C6-NGq">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXa-C6-NGq">
                     <rect key="frame" x="172.66666666666666" y="427" width="30" height="30"/>
                     <state key="normal">
                         <color key="titleColor" name="BahamaBlue"/>
@@ -106,6 +106,7 @@
                 <constraint firstAttribute="trailing" secondItem="ODi-oQ-nbW" secondAttribute="trailing" constant="15" id="H2X-u0-22o"/>
                 <constraint firstItem="TEv-H6-hbN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="H3G-35-nf2"/>
                 <constraint firstItem="fcY-a0-n2H" firstAttribute="top" secondItem="fjj-Ng-acb" secondAttribute="bottom" constant="6" id="J9g-F4-hTI"/>
+                <constraint firstAttribute="trailing" secondItem="fjj-Ng-acb" secondAttribute="trailing" constant="15" id="K0Z-Jp-nEx"/>
                 <constraint firstItem="nXa-C6-NGq" firstAttribute="top" secondItem="SCJ-w9-15F" secondAttribute="bottom" constant="8" id="KAh-eG-1k2"/>
                 <constraint firstItem="CwD-Dx-3Dk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="OoC-qd-xJ5"/>
                 <constraint firstAttribute="trailing" secondItem="SCJ-w9-15F" secondAttribute="trailing" constant="15" id="TYw-QU-p9Q"/>
@@ -119,6 +120,7 @@
                 <constraint firstItem="nXa-C6-NGq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gdC-B6-ujX"/>
                 <constraint firstAttribute="trailing" secondItem="fcY-a0-n2H" secondAttribute="trailing" constant="15" id="iFD-Me-RHc"/>
                 <constraint firstItem="ODi-oQ-nbW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="k2r-KF-Lho"/>
+                <constraint firstAttribute="trailing" secondItem="CwD-Dx-3Dk" secondAttribute="trailing" constant="15" id="rif-J9-aFr"/>
                 <constraint firstItem="SCJ-w9-15F" firstAttribute="top" secondItem="ODi-oQ-nbW" secondAttribute="bottom" constant="8" id="tbL-if-AiT"/>
             </constraints>
             <point key="canvasLocation" x="138" y="140"/>
