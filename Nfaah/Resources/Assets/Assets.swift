@@ -27,7 +27,6 @@ internal enum Asset {
   }
   internal enum Images {
     internal static let about = ImageAsset(name: "about")
-    internal static let app = ImageAsset(name: "app")
     internal static let backArrow = ImageAsset(name: "back_arrow")
     internal static let checklist1 = ImageAsset(name: "checklist (1)")
     internal static let checklist2 = ImageAsset(name: "checklist (2)")
