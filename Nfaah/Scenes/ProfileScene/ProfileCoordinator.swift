@@ -54,7 +54,7 @@ extension ProfileCoordinator: ProfileVCDelegate {
     }
     
     func openWhatsappView(itemValue: String) {
-        if let url = URL(string: "whatsapp://send?phone=\(itemValue)"),
+        if let url = URL(string: "https://api.whatsapp.com/send?phone=\(itemValue)"),
             UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {

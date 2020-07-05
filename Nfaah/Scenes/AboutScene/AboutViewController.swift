@@ -36,6 +36,13 @@ extension AboutViewController {
         titleLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
         titleLabel.text = L10n.Login.Screen.about
         
+        let attributedString = NSMutableAttributedString(string: L10n.about)
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.lineSpacing = 5
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+
+        aboutLabel.attributedText = attributedString
         aboutLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
     }
 }

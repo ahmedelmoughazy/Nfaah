@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// نفعة تطبيق يعمل على توصيل طلبات العملاء من المطاعم والمقاهي، والسوبر ماركات الخ.. في مدينة عدن.\nونسعى من خلال هذا التطبيق لنيل ثقة المتعاملين معنا من كافة أنحاء البلاد عبر اعتماد أسلوب يتركز على الجودة و إرضاء العملاء بالدرجة الأولى.\nنفعة من أوائل التطبيقات التي تقدم هذا النوع من الخدمات في مدينة عدن، وذلك من خلال فريق متكامل و متناسق و متميز بالكفائة العالية و الإخلاص في أداء المهام، وهذا ما نعتبره أحد أسرار النجاح.\n
+  internal static let about = L10n.tr("Localizable", "about")
 
   internal enum Home {
     internal enum Screen {

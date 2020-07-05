@@ -53,15 +53,8 @@
                         <constraint firstAttribute="height" constant="200" id="M2I-cl-beh"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02r-dX-lmC">
-                    <rect key="frame" x="15" y="292" width="345" height="264"/>
-                    <mutableString key="text">نفعة تطبيق يعمل على توصيل طلبات العملاء من
-المطاعم والمقاهي,والسوبر ماركات الخ.. في مدينة عدن.ونسعى من خلال
-هذا التطبيق لنيل ثقة المتعاملين معنا من كافة أنحاء البلاد عبر اعتماد
-ألسلوب يتركز على الجودة و إرضاء العملاء بالدرجة الأولى.
-نفعة من أوائل التطبيقات التي تقدم هذا النوع من الخدمات في مدينة
-عدن,وذلك من خلال فريق متكامل و متناسق و متميز بالكفائة العالية و
-الإخلاص في أداء المهام,وهذا ما نعتبره أحد أسرار النجاح.</mutableString>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02r-dX-lmC">
+                    <rect key="frame" x="15" y="292" width="345" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="BahamaBlue"/>
                     <nil key="highlightedColor"/>
