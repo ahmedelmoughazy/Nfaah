@@ -27,20 +27,22 @@ class OrderTableViewCell: UITableViewCell {
     }
     
     func setUpView() {
-        self.dateLabel.font = FontFamily._29LTAzer.regular.font(size: 16)
-        self.statusLabel.font = FontFamily._29LTAzer.regular.font(size: 16)
-        self.orderLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
-        self.addressLabel.font = FontFamily._29LTAzer.regular.font(size: 18)
-        
-        orderImageBackgrounView.setCornerRadious(radious: orderImageBackgrounView.frame.height / 2, hasShadow: true)
+        dateLabel.font = FontFamily._29LTAzer.regular.font(size: 16)
+        statusLabel.font = FontFamily._29LTAzer.regular.font(size: 16)
+        orderLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
+        addressLabel.font = FontFamily._29LTAzer.regular.font(size: 18)
+        orderImage.setCornerRadious(radious: orderImage.frame.height / 2, hasShadow: true)
+        orderImageBackgrounView.setCornerRadious(radious: orderImageBackgrounView.frame.height / 2, hasShadow: false)
         orderView.setCornerRadious(radious: 10, hasShadow: true)
         orderView.layer.borderWidth = 1
         orderView.layer.borderColor = UIColor.lightGray.cgColor
+        orderImageBackgrounView.layer.borderWidth = 1
+        orderImageBackgrounView.layer.borderColor = UIColor.lightGray.cgColor
         background.setCornerRadious(radious: 10, hasShadow: true)
     }
     
     func configureCell(item: Order) {
-        self.dateLabel.text = item.date
+        self.dateLabel.text = String(item.date?.prefix(16) ?? "")
         self.statusLabel.text = item.status
         self.orderLabel.text = item.order
         
@@ -51,8 +53,8 @@ class OrderTableViewCell: UITableViewCell {
             }
         }
         
-        let reference = Storage.storage().reference(withPath: "Orders/\(String(describing: item.orderId)).jpg")
-        reference.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+        let reference = Storage.storage().reference(withPath: "Orders/\(item.orderId ?? "")")
+        reference.getData(maxSize: 15 * 1024 * 1024) { (data, error) -> Void in
             if error == nil {
                 self.orderImage.image = UIImage(data: data!)
             }

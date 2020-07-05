@@ -20,10 +20,9 @@ extension UIView {
     func setCornerRadious(radious: CGFloat, hasShadow: Bool) {
         self.layer.cornerRadius = radious
         self.layer.masksToBounds = true
-        
-        self.clipsToBounds = false
-        
+                
         if !hasShadow { return }
+        self.clipsToBounds = false
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowOffset = CGSize(width: 1, height: 3)
         self.layer.shadowRadius = 3
