@@ -14,4 +14,5 @@ target 'Nfaah' do
   pod 'SDWebImage', '~> 5.8'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'IQKeyboardManagerSwift'
 end

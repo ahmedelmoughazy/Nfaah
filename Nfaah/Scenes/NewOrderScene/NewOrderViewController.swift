@@ -140,6 +140,9 @@ extension NewOrderViewController {
     }
     
     private func setUpView() {
+        
+        hideKeyboardWhenTappedAround()
+        
         titleLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
         titleLabel.text = L10n.Order.Screen.newOrder
         

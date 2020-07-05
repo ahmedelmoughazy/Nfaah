@@ -210,6 +210,8 @@ extension UserLoginRegisterSceneViewController: UserLoginRegisterSceneViewProtoc
         
         self.type = type
         
+        hideKeyboardWhenTappedAround()
+        
         titleLabel.font = FontFamily._29LTAzer.medium.font(size: 17)
         
         chooseAnotherWayLabel.font = FontFamily._29LTAzer.regular.font(size: 15)

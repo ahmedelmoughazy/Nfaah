@@ -51,6 +51,9 @@ extension LoginViewController {
 // MARK: - Private
 extension LoginViewController {
     private func setUpView() {
+        
+        hideKeyboardWhenTappedAround()
+        
         aboutButton.setTitle(L10n.Login.Screen.about, for: .normal)
         aboutButton.titleLabel?.font = FontFamily._29LTAzer.regular.font(size: 17)
         
