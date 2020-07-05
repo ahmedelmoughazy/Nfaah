@@ -29,9 +29,11 @@ class LoginViewController: BaseViewController<LoginPresenter> {
 // MARK: - IBActions
 extension LoginViewController {
     @IBAction func aboutAction(_ sender: UIButton) {
+        presenter.openAboutScreen()
     }
     
     @IBAction func contactAction(_ sender: UIButton) {
+        presenter.openWhatsappView(itemValue: "+9677377449960")
     }
     
     @IBAction func loginAction(_ sender: UIButton) {

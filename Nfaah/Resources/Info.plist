@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.949919370894-k14rehqitvf49uahlu1675ma0d2qsfqn</string>
+				<string>com.googleusercontent.apps.833856906352-gakg0vqivqacn7kpumcttoq76n8heugp</string>
 			</array>
 		</dict>
 		<dict>
@@ -31,7 +31,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb278594893387361</string>
+				<string>App_FaceBook_Id</string>
 			</array>
 		</dict>
 	</array>
@@ -61,7 +61,7 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Do you allow this app to know your current location?</string>
@@ -86,5 +86,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

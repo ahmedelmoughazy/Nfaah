@@ -30,6 +30,7 @@
 "newOrder.screen.yourLocation" = "تحديث الموقع";
 "newOrder.screen.submit" = "رفع الطلب";
 "newOrder.screen.order.pending" = "قيد الإنتظار";
+"newOrder.screen.order.error" = "حدث خطأ حاول فى وقت لاحق !";
 
 // MARK: - Login Screen
 "login.screen.about" = "عن نغعة";
@@ -64,3 +65,4 @@
 "profile.screen.tabSubTitle.about" = "من نحن ؟";
 "profile.screen.tabTitle.logout" = "تسجيل الخروج";
 "profile.screen.tabSubTitle.logout" = "الخروج من حسابك والعودة الى صفحة تسجيل الدخول";
+"profile.screen.noWhatsApp" = "لا يوجد تطبيق واتساب على هاتفك الجوال";

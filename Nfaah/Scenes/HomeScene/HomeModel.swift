@@ -9,8 +9,9 @@
 import Foundation
 
 class HomeModel: BaseModel, HomeModelProtocol {
-        func getOrders(completion: @escaping (_ result: Swift.Result<[Order], Error>) -> Void) {
-        completion(.success([Order]()))
+    func getOrders(completion: @escaping (_ result: Swift.Result<[Order], Error>) -> Void) {
+        FireBaseService.shared.getOrders { result in
+            completion(result)
+        }
     }
-
 }

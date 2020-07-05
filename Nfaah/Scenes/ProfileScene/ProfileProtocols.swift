@@ -20,7 +20,10 @@ protocol ProfilePresenterProtocol: BasePresenterProtocol {
 protocol ProfileViewProtocol: BaseViewProtocol {
     func renderViewWith(items: [ProfileItem])
 }
+
 protocol ProfileVCDelegate: class {
+    func openWhatsappView(itemValue: String)
+    func openAboutScreen()
     func showNewOrder()
     func dismissView()
     func logout()

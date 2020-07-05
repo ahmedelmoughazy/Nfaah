@@ -23,7 +23,6 @@ class AppRouter: NSObject, Router {
         self.navigationController = navigationController
         self.completions = [:]
         super.init()
-        //self.navigationController.delegate = self
     }
     
     public func toPresentable() -> UIViewController {

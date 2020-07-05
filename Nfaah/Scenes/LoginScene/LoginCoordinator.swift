@@ -6,13 +6,15 @@
 //  Copyright © 2020 Nfaah. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class LoginCoordinator: Coordinator {
     var appRouter: AppRouter
     var viewcontroller: LoginViewController?
     var loginRegisterSceneCoordinator: UserLoginRegisterSceneCoordinator?
-    
+    var aboutCoordinator: AboutCoordinator?
+    var presenter: LoginPresenter?
+
     init(appRouter: AppRouter) {
         self.appRouter = appRouter
     }
@@ -22,6 +24,7 @@ class LoginCoordinator: Coordinator {
         let model = LoginModel()
         let presenter = LoginPresenter(view: view, model: model)
         presenter.delegate = self
+        self.presenter = presenter
         view.setPresenter(presenter: presenter)
         return view
     }
@@ -35,8 +38,23 @@ class LoginCoordinator: Coordinator {
 }
 // MARK: - Delegetes
 extension LoginCoordinator: LoginVCDelegate {
+    func openAboutScreen() {
+        let aboutCoordinator = AboutCoordinator(appRouter: appRouter)
+        self.aboutCoordinator = aboutCoordinator
+        aboutCoordinator.start()
+    }
+    
     func dismissView() {
         appRouter.pop()
+    }
+    
+    func openWhatsappView(itemValue: String) {
+        if let url = URL(string: "whatsapp://send?phone=\(itemValue)"),
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            presenter?.showErrorMessage(error: L10n.Profile.Screen.noWhatsApp)
+        }
     }
     
     func showLogin(with type: AuthType) {

@@ -63,6 +63,8 @@ internal enum L10n {
       /// طلبك
       internal static let yourOrder = L10n.tr("Localizable", "newOrder.screen.yourOrder")
       internal enum Order {
+        /// حدث خطأ حاول فى وقت لاحق !
+        internal static let error = L10n.tr("Localizable", "newOrder.screen.order.error")
         /// قيد الإنتظار
         internal static let pending = L10n.tr("Localizable", "newOrder.screen.order.pending")
       }
@@ -86,6 +88,8 @@ internal enum L10n {
 
   internal enum Profile {
     internal enum Screen {
+      /// لا يوجد تطبيق واتساب على هاتفك الجوال
+      internal static let noWhatsApp = L10n.tr("Localizable", "profile.screen.noWhatsApp")
       /// حسابى
       internal static let title = L10n.tr("Localizable", "profile.screen.title")
       internal enum TabSubTitle {

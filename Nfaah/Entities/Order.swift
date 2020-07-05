@@ -10,7 +10,7 @@ import Foundation
 import FirebaseAuth
 
 struct Order: Dictionable {
-    var date: Date?
+    var date: String?
     var latitude: Double?
     var longitude: Double?
     var name: String?

@@ -28,11 +28,9 @@ class HomePresenter: BasePresenter, HomePresenterProtocol {
                 self.view?.clearData()
                 self.view?.renderViewWithData(data: orders)
             case .failure(let error):
-                print("\(error)")
-//                self.checkErrors(error: error)
+                self.view?.showErrorMassege?(errorMessage: error.localizedDescription)
             }
             self.view?.hideLoading?()
         }
     }
-    
 }

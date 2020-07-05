@@ -23,34 +23,62 @@ class BaseViewController<Presenter: BasePresenterProtocol>: UIViewController, Ba
     
     func showLoading(allowNavigation: Bool) {
         container.frame = CGRect(x: 0,
-                                  y: 0,
-                                  width: UIScreen.main.bounds.width,
-                                  height: UIScreen.main.bounds.height)
-         container.center = CGPoint(x: UIScreen.main.bounds.width / 2,
-                                    y: UIScreen.main.bounds.height / 2)
-         container.backgroundColor = Asset.Colors.silverColor.color.withAlphaComponent(0.8)
-         
-         loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-         loadingView.center = CGPoint(x: UIScreen.main.bounds.width / 2,
-                                      y: UIScreen.main.bounds.height / 2)
-        loadingView.backgroundColor = .white
-         loadingView.clipsToBounds = true
-         loadingView.layer.cornerRadius = 10
-         
-         activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
-         activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
-         activityIndicator.color = Asset.Colors.bahamaBlue.color
-         activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2,
-                                            y: loadingView.frame.size.height / 2)
-         activityIndicator.startAnimating()
+                                 y: 0,
+                                 width: UIScreen.main.bounds.width,
+                                 height: UIScreen.main.bounds.height)
+        container.center = CGPoint(x: UIScreen.main.bounds.width / 2,
+                                   y: UIScreen.main.bounds.height / 2)
+        container.backgroundColor = Asset.Colors.silverColor.color.withAlphaComponent(0.8)
         
-         container.addSubview(loadingView)
-         UIApplication.shared.windows.last?.addSubview(container)
-         loadingView.addSubview(activityIndicator)
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.center = CGPoint(x: UIScreen.main.bounds.width / 2,
+                                     y: UIScreen.main.bounds.height / 2)
+        loadingView.backgroundColor = .white
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
+        activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
+        activityIndicator.color = Asset.Colors.bahamaBlue.color
+        activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2,
+                                           y: loadingView.frame.size.height / 2)
+        activityIndicator.startAnimating()
+        
+        container.addSubview(loadingView)
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.last?.addSubview(container)
+        } else {
+            UIApplication.shared.keyWindow?.addSubview(container)
+        }
+        loadingView.addSubview(activityIndicator)
     }
     
     func showLoadingOnWindow(allowNavigation: Bool) {
+        container.frame = CGRect(x: 0,
+                                 y: 0,
+                                 width: UIScreen.main.bounds.width,
+                                 height: UIScreen.main.bounds.height)
+        container.center = CGPoint(x: UIScreen.main.bounds.width / 2,
+                                   y: UIScreen.main.bounds.height / 2)
+        container.backgroundColor = Asset.Colors.silverColor.color.withAlphaComponent(0.8)
         
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.center = CGPoint(x: UIScreen.main.bounds.width / 2,
+                                     y: UIScreen.main.bounds.height / 2)
+        loadingView.backgroundColor = .white
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
+        activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
+        activityIndicator.color = Asset.Colors.bahamaBlue.color
+        activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2,
+                                           y: loadingView.frame.size.height / 2)
+        activityIndicator.startAnimating()
+        
+        container.addSubview(loadingView)
+        self.view.addSubview(container)
+        loadingView.addSubview(activityIndicator)
     }
     
     func hideLoading() {
@@ -59,6 +87,10 @@ class BaseViewController<Presenter: BasePresenterProtocol>: UIViewController, Ba
     }
     
     func showErrorMassege(errorMessage: String) {
-        UIApplication.shared.windows.last?.makeToast(errorMessage, duration: 1.0)
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.last?.makeToast(errorMessage, duration: 1.0)
+        } else {
+            UIApplication.shared.keyWindow?.makeToast(errorMessage, duration: 1.0)
+        }
     }
 }

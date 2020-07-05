@@ -9,7 +9,13 @@
 import Foundation
 
 class NewOrderModel: BaseModel, NewOrderModelProtocol {
-    func add(order: Order) {
-        FireBaseService.shared.addToDataBase(order: order)
+    func add(order: Order, completion: @escaping (Bool) -> Void) {
+        FireBaseService.shared.addToDataBase(order: order) { success in
+            completion(success)
+        }
+    }
+    
+    func uploadImage(data: Data, name: String) {
+        FireBaseService.shared.uploadImage(data: data, name: name)
     }
 }

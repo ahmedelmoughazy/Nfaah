@@ -22,4 +22,16 @@ class LoginPresenter: BasePresenter, LoginPresenterProtocol {
     func showLogin(with type: AuthType) {
         delegate?.showLogin(with: type)
     }
+    
+    func openAboutScreen() {
+        delegate?.openAboutScreen()
+    }
+    
+    func openWhatsappView(itemValue: String) {
+        delegate?.openWhatsappView(itemValue: itemValue)
+    }
+
+    func showErrorMessage(error: String) {
+        view?.showErrorMassege?(errorMessage: error)
+    }
 }

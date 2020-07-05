@@ -7,9 +7,9 @@ target 'Nfaah' do
 
   # Pods for Nfaah
   pod 'Toast-Swift', '~> 5.0.1'
-  pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'GoogleSignIn'
   pod 'SDWebImage', '~> 5.8'
   pod 'FBSDKCoreKit'

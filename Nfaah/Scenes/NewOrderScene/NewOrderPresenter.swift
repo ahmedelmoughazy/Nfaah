@@ -24,6 +24,17 @@ class NewOrderPresenter: BasePresenter, NewOrderPresenterProtocol {
     }
     
     func add(order: Order) {
-        model?.add(order: order)
+        view?.showLoading?(allowNavigation: false)
+        model?.add(order: order) { success in
+            if !success {
+                self.view?.showErrorMassege?(errorMessage: L10n.NewOrder.Screen.Order.error)
+            }
+            self.view?.hideLoading?()
+            self.dismissView()
+        }
+    }
+    
+    func uploadImage(data: Data, name: String) {
+        model?.uploadImage(data: data, name: name)
     }
 }

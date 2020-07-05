@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="Nfaah" customModuleProvider="target">
+            <connections>
+                <outlet property="aboutLabel" destination="02r-dX-lmC" id="ZxN-xy-hkK"/>
+                <outlet property="titleLabel" destination="fpj-R4-Kk5" id="Xfw-OI-0wk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCC-rW-fTq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpj-R4-Kk5">
+                            <rect key="frame" x="187.66666666666666" y="54" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRZ-K4-R72">
+                            <rect key="frame" x="15" y="42" width="24" height="24"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="close"/>
+                            <connections>
+                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="5aT-gk-G1D"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="BahamaBlue"/>
+                    <constraints>
+                        <constraint firstItem="oRZ-K4-R72" firstAttribute="leading" secondItem="gCC-rW-fTq" secondAttribute="leading" constant="15" id="5vb-Wa-uUe"/>
+                        <constraint firstAttribute="bottom" secondItem="oRZ-K4-R72" secondAttribute="bottom" constant="10" id="EtX-bz-1Hf"/>
+                        <constraint firstItem="oRZ-K4-R72" firstAttribute="centerY" secondItem="fpj-R4-Kk5" secondAttribute="centerY" id="F1a-nN-Ixk"/>
+                        <constraint firstItem="fpj-R4-Kk5" firstAttribute="top" secondItem="gCC-rW-fTq" secondAttribute="top" constant="54" id="JIL-uh-NM4"/>
+                        <constraint firstItem="fpj-R4-Kk5" firstAttribute="centerX" secondItem="gCC-rW-fTq" secondAttribute="centerX" id="gUZ-4V-C8r"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fries" translatesAutoresizingMaskIntoConstraints="NO" id="Zit-5a-zCb">
+                    <rect key="frame" x="0.0" y="76" width="375" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="M2I-cl-beh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02r-dX-lmC">
+                    <rect key="frame" x="15" y="292" width="345" height="264"/>
+                    <mutableString key="text">نفعة تطبيق يعمل على توصيل طلبات العملاء من
+المطاعم والمقاهي,والسوبر ماركات الخ.. في مدينة عدن.ونسعى من خلال
+هذا التطبيق لنيل ثقة المتعاملين معنا من كافة أنحاء البلاد عبر اعتماد
+ألسلوب يتركز على الجودة و إرضاء العملاء بالدرجة الأولى.
+نفعة من أوائل التطبيقات التي تقدم هذا النوع من الخدمات في مدينة
+عدن,وذلك من خلال فريق متكامل و متناسق و متميز بالكفائة العالية و
+الإخلاص في أداء المهام,وهذا ما نعتبره أحد أسرار النجاح.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="BahamaBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Zit-5a-zCb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5Y1-Ps-55Z"/>
+                <constraint firstItem="Zit-5a-zCb" firstAttribute="top" secondItem="gCC-rW-fTq" secondAttribute="bottom" id="AAj-h4-51s"/>
+                <constraint firstAttribute="trailing" secondItem="02r-dX-lmC" secondAttribute="trailing" constant="15" id="B8d-th-AVM"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="02r-dX-lmC" secondAttribute="bottom" constant="20" id="IG1-4K-CSb"/>
+                <constraint firstItem="gCC-rW-fTq" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Qy1-vF-ncH"/>
+                <constraint firstItem="02r-dX-lmC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="bTM-LL-HAM"/>
+                <constraint firstItem="02r-dX-lmC" firstAttribute="top" secondItem="Zit-5a-zCb" secondAttribute="bottom" constant="16" id="bWH-rZ-DIf"/>
+                <constraint firstItem="gCC-rW-fTq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lfI-M1-z8k"/>
+                <constraint firstAttribute="trailing" secondItem="Zit-5a-zCb" secondAttribute="trailing" id="mYu-Mr-Zo5"/>
+                <constraint firstItem="gCC-rW-fTq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="naE-bb-3OK"/>
+            </constraints>
+            <point key="canvasLocation" x="138" y="140"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close" width="24" height="24"/>
+        <image name="fries" width="1200" height="600"/>
+        <namedColor name="BahamaBlue">
+            <color red="0.12549019607843137" green="0.28627450980392155" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -32,6 +32,11 @@ class ProfileViewController: BaseViewController<ProfilePresenter> {
         setupTableView()
         presenter.createProfileItems()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        nameLabel.text = Auth.auth().currentUser?.displayName
+    }
 }
 
 // MARK: - IBActions

@@ -14,7 +14,7 @@ import FBSDKCoreKit
 
 extension AppDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        if url.scheme != nil && url.scheme!.hasPrefix("fb278594893387361") && url.host ==  "authorize" {
+        if url.scheme != nil && url.scheme!.hasPrefix("App_FaceBook_Id") && url.host ==  "authorize" {
             return ApplicationDelegate.shared.application(
                 app,
                 open: url,

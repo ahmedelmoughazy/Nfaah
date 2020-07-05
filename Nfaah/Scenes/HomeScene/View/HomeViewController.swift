@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import UIKit
 
 class HomeViewController: BaseViewController<HomePresenter> {
@@ -40,7 +41,10 @@ class HomeViewController: BaseViewController<HomePresenter> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.presenter.getOrders()
+        if Auth.auth().currentUser != nil {
+            self.presenter.getOrders()
+        }
+        
     }
 }
 

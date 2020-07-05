@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>949919370894-k14rehqitvf49uahlu1675ma0d2qsfqn.apps.googleusercontent.com</string>
+	<string>833856906352-gakg0vqivqacn7kpumcttoq76n8heugp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.949919370894-k14rehqitvf49uahlu1675ma0d2qsfqn</string>
+	<string>com.googleusercontent.apps.833856906352-gakg0vqivqacn7kpumcttoq76n8heugp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>833856906352-9sgl7bh3gr3skam85e1nn2fj6fsprk6b.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAITWYWNuJ32OufguUN5fT430K0lWwTNc0</string>
+	<string>AIzaSyA2j_KQubCC6-sMO-eA3vysGQgBvPX_SZg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>949919370894</string>
+	<string>833856906352</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.nfaah.Nfaah</string>
 	<key>PROJECT_ID</key>
-	<string>nfaah-8af44</string>
+	<string>makadhi-36144</string>
 	<key>STORAGE_BUCKET</key>
-	<string>nfaah-8af44.appspot.com</string>
+	<string>makadhi-36144.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:949919370894:ios:73960706300610decb43df</string>
+	<string>1:833856906352:ios:9147439adebb812dc3c0b5</string>
 	<key>DATABASE_URL</key>
-	<string>https://nfaah-8af44.firebaseio.com</string>
+	<string>https://makadhi-36144.firebaseio.com</string>
 </dict>
 </plist>

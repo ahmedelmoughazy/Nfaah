@@ -18,9 +18,9 @@ class NewOrderViewController: BaseViewController<NewOrderPresenter> {
     private let timePicker = UIDatePicker()
     private let imagePicker = UIImagePickerController()
     private let formatter = DateFormatter()
-    private var image = UIImage()
     private var locationManager: CLLocationManager!
     private var userLocation: CLLocation?
+    
     // MARK: - IBOutlets
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var userNameTextView: FloatLabelTextView!
@@ -61,19 +61,26 @@ extension NewOrderViewController {
         let allHaveText = textViews.allSatisfy { $0.text?.isEmpty == false }
         if allHaveText {
             // presenter fill order and make request
-            let order = Order(date: timePicker.date,
+            let orderId = "\(Date().timeIntervalSince1970)"
+            let orderString = orderTextView.text+" / "+shopNameTextView.text+" / "+shopAddressTextView.text
+            let stringOrderId = orderId.replacingOccurrences(of: ".", with: "").prefix(13)
+            
+            let order = Order(date: String(describing: timePicker.date),
                               latitude: userLocation?.coordinate.latitude,
                               longitude: userLocation?.coordinate.longitude,
                               name: userNameTextView.text,
-                              order: "\(String(describing: orderTextView.text)) , \(String(describing: shopNameTextView.text)) , \(String(describing: shopAddressTextView.text))",
-                              orderId: "\(Date().timeIntervalSince1970)",
+                              order: orderString,
+                              orderId: String(stringOrderId),
                               orderNum: "0",
                               phone: numberTextView.text,
                               status: L10n.NewOrder.Screen.Order.pending)
             presenter.add(order: order)
+            guard let orderImage = self.slectedImageView.image, let data = orderImage.jpegData(compressionQuality: 0.8) else { return }
+            presenter.uploadImage(data: data, name: String(stringOrderId))
         } else {
             showErrorMassege(errorMessage: L10n.Sign.Screen.emptyFields)
         }
+        
     }
 }
 
@@ -156,7 +163,7 @@ extension NewOrderViewController {
         orderTypeTextView.text = L10n.NewOrder.Screen.orderPlace
         orderTypeTextView.textColor = UIColor.lightGray.withAlphaComponent(0.65)
         orderTypeTextView.selectedRowColor = UIColor.lightGray.withAlphaComponent(0.65)
-        orderTypeTextView.optionArray = ["Option 1", "Option 2", "Option 3"]
+        orderTypeTextView.optionArray = ["اخر", "خضروات"]
         orderTypeTextView.didSelect{(selectedText , index ,id) in
             self.orderTypeTextView.textColor = Asset.Colors.bahamaBlue.color
             self.orderTypeTextView.text = selectedText
@@ -270,8 +277,7 @@ extension NewOrderViewController: UINavigationControllerDelegate, UIImagePickerC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.image = image
-            self.slectedImageView.image = image
+            slectedImageView.image = image
             imageLabel.textColor = Asset.Colors.bahamaBlue.color
             imageLabel.text = L10n.NewOrder.Screen.imageChoosen
         }

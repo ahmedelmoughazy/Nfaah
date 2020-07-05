@@ -20,6 +20,8 @@ protocol LoginViewProtocol: BaseViewProtocol {
 
 }
 protocol LoginVCDelegate: class {
+    func openWhatsappView(itemValue: String)
+    func openAboutScreen()
     func dismissView()
     func showLogin(with type: AuthType)
 }

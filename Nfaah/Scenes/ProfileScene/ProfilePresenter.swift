@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StoreKit
 
 class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
     
@@ -34,15 +35,19 @@ class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
         case .site:
             print("\(selectedItem.type)")
         case .rate:
-            print("\(selectedItem.type)")
+            SKStoreReviewController.requestReview()
         case .share:
             print("\(selectedItem.type)")
         case .contactUs:
-            print("\(selectedItem.type)")
+            delegate?.openWhatsappView(itemValue: "+9677377449960")
         case .about:
-            print("\(selectedItem.type)")
+            delegate?.openAboutScreen()
         case .logOut:
             delegate?.logout()
         }
+    }
+    
+    func showErrorMessage(error: String) {
+        view.showErrorMassege?(errorMessage: error)
     }
 }

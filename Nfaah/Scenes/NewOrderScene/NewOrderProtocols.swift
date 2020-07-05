@@ -9,7 +9,8 @@
 import Foundation
 
 protocol NewOrderModelProtocol: BaseModelProtocol {
-    func add(order: Order)
+    func add(order: Order, completion: @escaping (Bool) -> Void)
+    func uploadImage(data: Data, name: String)
 }
 
 protocol NewOrderPresenterProtocol: BasePresenterProtocol {

@@ -12,7 +12,9 @@ class ProfileCoordinator: Coordinator {
     var appRouter: AppRouter
     var viewcontroller: ProfileViewController?
     var newOrderCoordinator: NewOrderCoordinator?
-
+    var aboutCoordinator: AboutCoordinator?
+    var presenter: ProfilePresenter?
+    
     init(appRouter: AppRouter) {
         self.appRouter = appRouter
     }
@@ -22,6 +24,7 @@ class ProfileCoordinator: Coordinator {
         let model = ProfileModel()
         let presenter = ProfilePresenter(view: view, model: model)
         presenter.delegate = self
+        self.presenter = presenter
         view.setPresenter(presenter: presenter)
         return view
     }
@@ -48,5 +51,20 @@ extension ProfileCoordinator: ProfileVCDelegate {
     func logout() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.applicationCoordinator?.logoutUnauthedUser()
+    }
+    
+    func openWhatsappView(itemValue: String) {
+        if let url = URL(string: "whatsapp://send?phone=\(itemValue)"),
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            presenter?.showErrorMessage(error: L10n.Profile.Screen.noWhatsApp)
+        }
+    }
+    
+    func openAboutScreen() {
+        let aboutCoordinator = AboutCoordinator(appRouter: appRouter)
+        self.aboutCoordinator = aboutCoordinator
+        aboutCoordinator.start()
     }
 }

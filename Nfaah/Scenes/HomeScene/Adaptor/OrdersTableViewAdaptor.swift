@@ -19,7 +19,6 @@ class OrdersTableViewAdaptor: NSObject {
     
     func setTableView(tableView: UITableView) {
         self.tableView = tableView
-        self.tableView?.separatorStyle = .none
         self.tableView?.register(OrderTableViewCell.nib,
                                  forCellReuseIdentifier: OrderTableViewCell.identifier)
         

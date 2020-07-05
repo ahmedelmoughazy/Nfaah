@@ -10,7 +10,9 @@ import Foundation
 
 class UserLoginRegisterSceneModel: BaseModel, UserLoginRegisterSceneModelProtocol {
     
-    func signIn(with user: User) {
-        FireBaseService.shared.addToDataBase(user: user)
+    func signIn(with user: User, completion: @escaping (Bool) -> Void) {
+        FireBaseService.shared.addToDataBase(user: user) { success in
+            completion(success)
+        }
     }
 }

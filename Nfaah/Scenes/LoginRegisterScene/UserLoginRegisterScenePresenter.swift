@@ -26,7 +26,11 @@ class UserLoginRegisterScenePresenter: BasePresenter, UserLoginRegisterScenePres
     }
     
     func logUserIn(user: User) {
-        model.signIn(with: user)
+        model.signIn(with: user) { success in
+            if !success {
+                self.view.showErrorMassege?(errorMessage: L10n.NewOrder.Screen.Order.error)
+            }
+        }
         delegate?.logUserIn()
     }
     
