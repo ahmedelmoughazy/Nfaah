@@ -19,11 +19,16 @@ class FireBaseService {
     
     func addToDataBase(user: User, completion: @escaping (Bool) -> Void) {
         let userDataDictionary = user.toDict()
-        databaseReference.child("Users").child(user.uid ?? "").setValue(userDataDictionary) { error, ref in
-            if error != nil {
-                completion(false)
-            } else {
-                completion(true)
+        checkIfUserExists { exist in
+            if !exist {
+                self.databaseReference.child("Users").child(user.uid ?? "").setValue(userDataDictionary) { error, ref in
+                    if error != nil {
+                        completion(false)
+                    } else {
+                        completion(true)
+                    }
+                }
+                
             }
         }
     }
@@ -93,11 +98,11 @@ class FireBaseService {
     }
     
     func uploadImage(data: Data, name: String) {
-
+        
         let filePath = "Orders/\(name)"
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-
+        
         self.storageRef.child(filePath).putData(data, metadata: metaData) { (metaData, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -105,6 +110,14 @@ class FireBaseService {
             } else {
             }
         }
-
+        
+    }
+    
+    func checkIfUserExists(completion: @escaping (Bool) -> Void) {
+        databaseReference.child("Users")
+            .child(Auth.auth().currentUser?.uid ?? "").observeSingleEvent(of: .value, with: { snapshot in
+                completion(snapshot.exists())
+            }) { _ in
+        }
     }
 }
