@@ -36,7 +36,7 @@ class FireBaseService {
     func addToDataBase(order: Order, completion: @escaping (Bool) -> Void) {
         let orderDictionary = order.toDict()
         databaseReference.child("Orders").child(order.orderId ?? "").setValue(orderDictionary) { error, ref in
-            if error != nil {
+            if error == nil {
                 completion(true)
             } else {
                 completion(false)
@@ -67,7 +67,9 @@ class FireBaseService {
                     let snap = child as? DataSnapshot
                     let orderSnap = snap?.value as? [String: Any]
                     
+                    let chosenTime = orderSnap?["chosenTime"] as? String
                     let date = orderSnap?["date"] as? String
+                    let from = orderSnap?["from"] as? String
                     let latitude = orderSnap?["latitude"] as? Double
                     let longitude = orderSnap?["longitude"] as? Double
                     let name = orderSnap?["name"] as? String
@@ -75,10 +77,14 @@ class FireBaseService {
                     let orderId = orderSnap?["orderId"] as? String
                     let orderNum = orderSnap?["orderNum"] as? String
                     let phone = orderSnap?["phone"] as? String
+                    let shopAddress = orderSnap?["shopAddress"] as? String
+                    let shopName = orderSnap?["shopName"] as? String
                     let status = orderSnap?["status"] as? String
                     let uid = orderSnap?["uid"] as? String
                     
-                    orders.append(Order(date: date,
+                    orders.append(Order(chosenTime: chosenTime,
+                                        date: date,
+                                        from: from,
                                         latitude: latitude,
                                         longitude: longitude,
                                         name: name,
@@ -86,6 +92,8 @@ class FireBaseService {
                                         orderId: orderId,
                                         orderNum: orderNum,
                                         phone: phone,
+                                        shopAddress: shopAddress,
+                                        shopName: shopName,
                                         status: status,
                                         uid: uid))
                 }
