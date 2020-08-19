@@ -58,21 +58,26 @@ extension NewOrderViewController {
     }
     
     @IBAction func submitAction(_ sender: UIButton) {
+
         let allHaveText = textViews.allSatisfy { $0.text?.isEmpty == false }
-        if allHaveText {
+        if allHaveText
+            && orderTypeTextView.text?.isEmpty == false
+            && timeTextField.text?.isEmpty == false {
             // presenter fill order and make request
             let orderId = "\(Date().timeIntervalSince1970)"
-            let orderString = orderTextView.text+" / "+shopNameTextView.text+" / "+shopAddressTextView.text
             let stringOrderId = orderId.replacingOccurrences(of: ".", with: "").prefix(13)
             
-            let order = Order(date: String(describing: timePicker.date),
+            let order = Order(chosenTime: timeTextField.text,
+                              date: dateFormatTime(date: Date()),
                               latitude: userLocation?.coordinate.latitude,
                               longitude: userLocation?.coordinate.longitude,
                               name: userNameTextView.text,
-                              order: orderString,
+                              order: orderTextView.text,
                               orderId: String(stringOrderId),
                               orderNum: "0",
                               phone: numberTextView.text,
+                              shopAddress: shopAddressTextView.text,
+                              shopName: shopNameTextView.text,
                               status: L10n.NewOrder.Screen.Order.pending)
             presenter.add(order: order)
             guard let orderImage = self.slectedImageView.image, let data = orderImage.jpegData(compressionQuality: 0.8) else { return }
@@ -166,7 +171,7 @@ extension NewOrderViewController {
         orderTypeTextView.text = L10n.NewOrder.Screen.orderPlace
         orderTypeTextView.textColor = UIColor.lightGray.withAlphaComponent(0.65)
         orderTypeTextView.selectedRowColor = UIColor.lightGray.withAlphaComponent(0.65)
-        orderTypeTextView.optionArray = ["اخر", "خضروات"]
+        orderTypeTextView.optionArray = ["اخر","خضروات وفواكة","سوبر ماركت","صيدلية","مطعم","مكتبة"]
         orderTypeTextView.didSelect{(selectedText , index ,id) in
             self.orderTypeTextView.textColor = Asset.Colors.bahamaBlue.color
             self.orderTypeTextView.text = selectedText
@@ -219,6 +224,13 @@ extension NewOrderViewController {
             //locationManager.startUpdatingHeading()
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    private func dateFormatTime(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MMM/yyyy hh:mm"
+        dateFormatter.locale = Locale(identifier: "ar_EG")
+        return dateFormatter.string(from: date)
     }
 }
 

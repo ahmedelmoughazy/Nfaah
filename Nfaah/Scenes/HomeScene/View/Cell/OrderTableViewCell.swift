@@ -45,7 +45,6 @@ class OrderTableViewCell: UITableViewCell {
         self.dateLabel.text = String(item.date?.prefix(16) ?? "")
         self.statusLabel.text = item.status
         self.orderLabel.text = item.order
-        
         let userLocation = CLLocation(latitude: item.latitude ?? 0.0, longitude: item.longitude ?? 0.0)
         CLGeocoder().reverseGeocodeLocation(userLocation, preferredLocale: nil) { [weak self] (placemark, error) in
             guard let self = self else { return }
@@ -53,7 +52,6 @@ class OrderTableViewCell: UITableViewCell {
                 self.addressLabel.text = pm.name
             }
         }
-        
         let reference = Storage.storage().reference(withPath: "Orders/\(item.orderId ?? "")")
         reference.getData(maxSize: 15 * 1024 * 1024) { (data, error) -> Void in
             if error == nil {

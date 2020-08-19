@@ -10,7 +10,9 @@ import Foundation
 import FirebaseAuth
 
 struct Order: Dictionable {
+    var chosenTime: String?
     var date: String?
+    var from: String?
     var latitude: Double?
     var longitude: Double?
     var name: String?
@@ -18,6 +20,8 @@ struct Order: Dictionable {
     var orderId: String?
     var orderNum: String?
     var phone: String?
+    var shopAddress: String?
+    var shopName: String?
     var status: String?
     var uid: String? = Auth.auth().currentUser?.uid
 }
