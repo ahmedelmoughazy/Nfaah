@@ -14,12 +14,12 @@ class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
     private var view: ProfileViewProtocol
     private var model: ProfileModelProtocol
     weak var delegate: ProfileVCDelegate?
-
+    
     init(view: ProfileViewProtocol, model: ProfileModelProtocol) {
         self.view = view
         self.model = model
     }
-
+    
     func createProfileItems() {
         let items = model.createProfileItems()
         view.renderViewWith(items: items)
@@ -37,7 +37,9 @@ class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
         case .rate:
             SKStoreReviewController.requestReview()
         case .share:
-            print("\(selectedItem.type)")
+            if let vc = Other().share(title: "نفعة") {
+                self.delegate?.share(vc: vc)
+            }
         case .contactUs:
             delegate?.openWhatsappView(itemValue: "+9677377449960")
         case .about:
@@ -50,4 +52,18 @@ class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
     func showErrorMessage(error: String) {
         view.showErrorMassege?(errorMessage: error)
     }
+}
+
+class Other {
+    
+    func share(title: String) -> UIActivityViewController?
+    {
+        let message = title
+        let image = Asset.Images.logo.image
+        let objectsToShare = [message, image] as [Any]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+        return activityVC
+    }
+    
 }

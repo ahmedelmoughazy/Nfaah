@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nfaah. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ProfileModelProtocol: BaseModelProtocol {
     func createProfileItems() -> [ProfileItem]
@@ -14,7 +14,7 @@ protocol ProfileModelProtocol: BaseModelProtocol {
 }
 
 protocol ProfilePresenterProtocol: BasePresenterProtocol {
-
+    
 }
 
 protocol ProfileViewProtocol: BaseViewProtocol {
@@ -27,4 +27,5 @@ protocol ProfileVCDelegate: class {
     func showNewOrder()
     func dismissView()
     func logout()
+    func share(vc: UIActivityViewController)
 }

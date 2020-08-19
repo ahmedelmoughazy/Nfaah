@@ -13,6 +13,8 @@ class AppRouter: NSObject, Router {
     
     private var completions: [UIViewController : () -> Void]
     
+    
+    
     public var rootViewController: UIViewController? {
         return navigationController.viewControllers.first
     }

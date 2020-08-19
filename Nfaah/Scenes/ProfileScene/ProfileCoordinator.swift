@@ -67,4 +67,14 @@ extension ProfileCoordinator: ProfileVCDelegate {
         self.aboutCoordinator = aboutCoordinator
         aboutCoordinator.start()
     }
+    
+    func share(vc: UIActivityViewController) {
+        self.appRouter.present(vc, animated: true)
+    }
 }
+/*
+extension UIActivityViewController: Showable {
+    func toShowable() -> UIViewController {
+        return UIViewController()
+    }
+}*/
