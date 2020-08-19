@@ -47,7 +47,8 @@ class OrderTableViewCell: UITableViewCell {
         self.orderLabel.text = item.order
         
         let userLocation = CLLocation(latitude: item.latitude ?? 0.0, longitude: item.longitude ?? 0.0)
-        CLGeocoder().reverseGeocodeLocation(userLocation, preferredLocale: nil) { (placemark, error) in
+        CLGeocoder().reverseGeocodeLocation(userLocation, preferredLocale: nil) { [weak self] (placemark, error) in
+            guard let self = self else { return }
             if let pm = placemark?.first {
                 self.addressLabel.text = pm.name
             }
