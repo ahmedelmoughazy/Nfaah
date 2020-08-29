@@ -44,8 +44,8 @@ class UserLoginRegisterSceneViewController: BaseViewController<UserLoginRegister
         
         presenter.viewDidLoad()
         setupGoogleSignIn()
-        setupFaceBookSignIn()
-        setupAppleLogin()
+//        setupFaceBookSignIn()
+//        setupAppleLogin()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -133,10 +133,12 @@ extension UserLoginRegisterSceneViewController {
         googleSignInView.layer.cornerRadius = 4
         googleSignInView.isUserInteractionEnabled = true
         googleSignInView.addGestureRecognizer(tapGestureRecognizer)
+        googleSignInView.semanticContentAttribute = .forceLeftToRight
     }
     
     private func setupFaceBookSignIn() {
         let faceBookSignInButton = FacebookButton(permissions: ["public_profile", "email"])
+        faceBookSignInButton.semanticContentAttribute = .forceLeftToRight
         faceBookSignInButton.heightAnchor.constraint(equalToConstant: 42).isActive = true
         faceBookSignInButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
         socialButtonsStackView.addArrangedSubview(faceBookSignInButton)
@@ -146,6 +148,7 @@ extension UserLoginRegisterSceneViewController {
     private func setupAppleLogin() {
         if #available(iOS 13.0, *) {
             let signInButton = ASAuthorizationAppleIDButton()
+            signInButton.contentVerticalAlignment = .top
             signInButton.layer.cornerRadius = 2
             signInButton.heightAnchor.constraint(equalToConstant: 42).isActive = true
             signInButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true

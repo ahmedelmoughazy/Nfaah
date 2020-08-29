@@ -11,7 +11,6 @@
 
 // swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
-// swiftlint:disable implicit_return
 
 // MARK: - Fonts
 
@@ -48,7 +47,7 @@ internal struct FontConvertible {
   }
 
   fileprivate var url: URL? {
-    let bundle = BundleToken.bundle
+    let bundle = Bundle(for: BundleToken.self)
     return bundle.url(forResource: path, withExtension: nil)
   }
 }
@@ -69,10 +68,4 @@ internal extension Font {
   }
 }
 
-// swiftlint:disable convenience_type
-private final class BundleToken {
-  static let bundle: Bundle = {
-    Bundle(for: BundleToken.self)
-  }()
-}
-// swiftlint:enable convenience_type
+private final class BundleToken {}

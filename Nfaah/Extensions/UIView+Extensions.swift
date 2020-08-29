@@ -24,7 +24,7 @@ extension UIView {
         if !hasShadow { return }
         self.clipsToBounds = false
         self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
         self.layer.shadowRadius = 3
         self.layer.shadowOpacity = 0.4
     }

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>833856906352-gakg0vqivqacn7kpumcttoq76n8heugp.apps.googleusercontent.com</string>
+	<string>833856906352-61914vfqm98spt63c5fe4tq2b7kntki0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.833856906352-gakg0vqivqacn7kpumcttoq76n8heugp</string>
+	<string>com.googleusercontent.apps.833856906352-61914vfqm98spt63c5fe4tq2b7kntki0</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>833856906352-9sgl7bh3gr3skam85e1nn2fj6fsprk6b.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.nfaah.Nfaah</string>
+	<string>com.greenhat.nafaa</string>
 	<key>PROJECT_ID</key>
 	<string>makadhi-36144</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:833856906352:ios:9147439adebb812dc3c0b5</string>
+	<string>1:833856906352:ios:77c91de5983dc0a3c3c0b5</string>
 	<key>DATABASE_URL</key>
 	<string>https://makadhi-36144.firebaseio.com</string>
 </dict>

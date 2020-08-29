@@ -30,7 +30,7 @@ class FacebookButton: FBLoginButton {
         let logoSize: CGFloat = 24.0
         let centerY = contentRect.midY
         let y: CGFloat = centerY - (logoSize / 2.0)
-        return CGRect(x: y, y: y, width: logoSize, height: logoSize)
+        return CGRect(x: contentRect.midX + 85, y: y, width: logoSize, height: logoSize)
     }
 
     override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
