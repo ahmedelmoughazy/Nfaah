@@ -86,7 +86,7 @@ class BaseViewController<Presenter: BasePresenterProtocol>: UIViewController, Ba
         container.removeFromSuperview()
     }
     
-    func showErrorMassege(errorMessage: String) {
+    func showErrorMessage(errorMessage: String) {
         if #available(iOS 13.0, *) {
             UIApplication.shared.windows.last?.makeToast(errorMessage, duration: 1.0)
         } else {

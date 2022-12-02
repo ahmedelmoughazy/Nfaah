@@ -25,13 +25,24 @@ class UserLoginRegisterScenePresenter: BasePresenter, UserLoginRegisterScenePres
         view.setUpView(with: screenType)
     }
     
-    func logUserIn(user: User) {
-        model.signIn(with: user) { success in
+    func signUp(with user: User) {
+        model.signUp(with: user) { success in
             if !success {
-                self.view.showErrorMassege?(errorMessage: L10n.NewOrder.Screen.Order.error)
+                self.view.showErrorMessage?(errorMessage: L10n.NewOrder.Screen.Order.error)
+            } else {
+                self.delegate?.logUserIn()
             }
         }
-        delegate?.logUserIn()
+    }
+    
+    func signIn(with user: User) {
+        model.signIn(with: user) { success in
+            if !success {
+                self.view.showErrorMessage?(errorMessage: L10n.NewOrder.Screen.Order.error)
+            } else {
+                self.delegate?.logUserIn()
+            }
+        }
     }
     
     func dismissView() {

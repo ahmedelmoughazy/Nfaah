@@ -17,18 +17,24 @@ class FireBaseService {
     let databaseReference = Database.database().reference()
     let storageRef = Storage.storage().reference()
     
+    func signIn(with user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+        checkIfUserExists { completion($0) }
+    }
+    
     func addToDataBase(user: User, completion: @escaping (Bool) -> Void) {
         let userDataDictionary = user.toDict()
-        checkIfUserExists { exist in
-            if !exist {
-                self.databaseReference.child("Users").child(user.uid ?? "").setValue(userDataDictionary) { error, ref in
+        checkIfUserExists { [weak self] result in
+            switch result {
+            case .success:
+                self?.databaseReference.child("Users").child(user.uid ?? "").setValue(userDataDictionary) { error, ref in
                     if error != nil {
                         completion(false)
                     } else {
                         completion(true)
                     }
                 }
-                
+            case .failure:
+                completion(false)
             }
         }
     }
@@ -121,11 +127,17 @@ class FireBaseService {
         
     }
     
-    func checkIfUserExists(completion: @escaping (Bool) -> Void) {
+    private func checkIfUserExists(completion: @escaping (Result<Void, Error>) -> Void) {
         databaseReference.child("Users")
-            .child(Auth.auth().currentUser?.uid ?? "").observeSingleEvent(of: .value, with: { snapshot in
-                completion(snapshot.exists())
-            }) { _ in
-        }
+            .child(Auth.auth().currentUser?.uid ?? "")
+            .observeSingleEvent(of: .value,
+                                with: { snapshot in
+                completion(.success)
+            }) { error in
+                completion(.failure(error))
+            }
     }
 }
+
+
+

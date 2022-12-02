@@ -27,7 +27,7 @@ class NewOrderPresenter: BasePresenter, NewOrderPresenterProtocol {
         view?.showLoading?(allowNavigation: false)
         model?.add(order: order) { success in
             if !success {
-                self.view?.showErrorMassege?(errorMessage: L10n.NewOrder.Screen.Order.error)
+                self.view?.showErrorMessage?(errorMessage: L10n.NewOrder.Screen.Order.error)
             }
             self.view?.hideLoading?()
             self.dismissView()

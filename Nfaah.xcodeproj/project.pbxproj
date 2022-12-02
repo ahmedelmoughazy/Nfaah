@@ -99,6 +99,7 @@
 		34F9507724AF985100872385 /* NewOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F9507124AF985000872385 /* NewOrderViewController.xib */; };
 		34F9507924AFBEB800872385 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9507824AFBEB700872385 /* FloatLabelTextView.swift */; };
 		3CEC85A3F424C12D1E17F3A9 /* Pods_Nfaah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C35A1892A73C8088BC53F67 /* Pods_Nfaah.framework */; };
+		80DD6AC4293AB0C200B35E4D /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD6AC3293AB0C200B35E4D /* Result+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,7 +152,7 @@
 		34E0271724AC80B300D69007 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		34E0271924AC80BA00D69007 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		34E0274524ACBBA400D69007 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		34E1EE7F24AC6EB000D5C2A6 /* نفعة.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "نفعة.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E1EE7F24AC6EB000D5C2A6 /* Nafaa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nafaa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E1EE8224AC6EB000D5C2A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Nfaah/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		34E1EE8E24AC6EB400D5C2A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34E1EE9024AC6EB400D5C2A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		34F9507024AF985000872385 /* NewOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderModel.swift; sourceTree = "<group>"; };
 		34F9507124AF985000872385 /* NewOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderViewController.xib; sourceTree = "<group>"; };
 		34F9507824AFBEB700872385 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
+		80DD6AC3293AB0C200B35E4D /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		84768D8E24EBCE6100CD77EF /* نفعة.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "نفعة.entitlements"; sourceTree = "<group>"; };
 		968517EFC30FEAFB3779B6A8 /* Pods-Nfaah.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nfaah.release.xcconfig"; path = "Target Support Files/Pods-Nfaah/Pods-Nfaah.release.xcconfig"; sourceTree = "<group>"; };
 		9C35A1892A73C8088BC53F67 /* Pods_Nfaah.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nfaah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,7 +352,7 @@
 		34E1EE8024AC6EB000D5C2A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34E1EE7F24AC6EB000D5C2A6 /* نفعة.app */,
+				34E1EE7F24AC6EB000D5C2A6 /* Nafaa.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,6 +411,7 @@
 				34E1EEAD24AC700F00D5C2A6 /* UIImage+Extensions.swift */,
 				34E1EEB824AC700F00D5C2A6 /* CALayer+extension.swift */,
 				3471733024AE1F2D0073DCB2 /* UITableViewCell+Extension.swift */,
+				80DD6AC3293AB0C200B35E4D /* Result+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -610,7 +613,7 @@
 			);
 			name = Nfaah;
 			productName = Nfaah;
-			productReference = 34E1EE7F24AC6EB000D5C2A6 /* نفعة.app */;
+			productReference = 34E1EE7F24AC6EB000D5C2A6 /* Nafaa.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -789,6 +792,7 @@
 				34E1F0DB24AC701100D5C2A6 /* Router.swift in Sources */,
 				3471734624AE3B730073DCB2 /* UserLoginRegisterSceneModel.swift in Sources */,
 				34F0D71E24B09CCB007293A4 /* OrdersTableViewAdaptor+DataSource.swift in Sources */,
+				80DD6AC4293AB0C200B35E4D /* Result+Extension.swift in Sources */,
 				34E0271124AC7D2600D69007 /* LoginViewController.swift in Sources */,
 				34F0D73D24B141F2007293A4 /* AboutModel.swift in Sources */,
 				3471734B24AE3B730073DCB2 /* UserLoginRegisterSceneCoordinator.swift in Sources */,
@@ -980,7 +984,7 @@
 				);
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenhat.nafaa;
-				PRODUCT_NAME = "نفعة";
+				PRODUCT_NAME = Nafaa;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1002,7 +1006,7 @@
 				);
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenhat.nafaa;
-				PRODUCT_NAME = "نفعة";
+				PRODUCT_NAME = Nafaa;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

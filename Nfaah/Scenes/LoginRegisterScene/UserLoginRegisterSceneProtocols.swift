@@ -9,6 +9,7 @@
 import Foundation
 
 protocol UserLoginRegisterSceneModelProtocol: BaseModelProtocol {
+    func signUp(with user: User, completion: @escaping (Bool) -> Void)
     func signIn(with user: User, completion: @escaping (Bool) -> Void)
 }
 
@@ -19,7 +20,7 @@ protocol UserLoginRegisterScenePresenterProtocol: BasePresenterProtocol {
 protocol UserLoginRegisterSceneViewProtocol: BaseViewProtocol {
     func setUpView(with type: AuthType)
 }
-protocol UserLoginRegisterSceneVCDelegate: class {
+protocol UserLoginRegisterSceneVCDelegate: AnyObject {
     func dismissView()
     func logUserIn()
 }

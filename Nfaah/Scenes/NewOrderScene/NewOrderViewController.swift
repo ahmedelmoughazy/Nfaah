@@ -83,7 +83,7 @@ extension NewOrderViewController {
             guard let orderImage = self.slectedImageView.image, let data = orderImage.jpegData(compressionQuality: 0.8) else { return }
             presenter.uploadImage(data: data, name: String(stringOrderId))
         } else {
-            showErrorMassege(errorMessage: L10n.Sign.Screen.emptyFields)
+            showErrorMessage(errorMessage: L10n.Sign.Screen.emptyFields)
         }
         
     }

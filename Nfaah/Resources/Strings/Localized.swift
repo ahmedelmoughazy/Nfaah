@@ -3,166 +3,175 @@
 
 import Foundation
 
-// swiftlint:disable superfluous_disable_command
-// swiftlint:disable file_length
+// swiftlint:disable superfluous_disable_command file_length implicit_return prefer_self_in_static_references
 
 // MARK: - Strings
 
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
-// swiftlint:disable nesting type_body_length type_name
+// swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// نفعة تطبيق يعمل على توصيل طلبات العملاء من المطاعم والمقاهي، والسوبر ماركات الخ.. في مدينة عدن.\nونسعى من خلال هذا التطبيق لنيل ثقة المتعاملين معنا من كافة أنحاء البلاد عبر اعتماد أسلوب يتركز على الجودة و إرضاء العملاء بالدرجة الأولى.\nنفعة من أوائل التطبيقات التي تقدم هذا النوع من الخدمات في مدينة عدن، وذلك من خلال فريق متكامل و متناسق و متميز بالكفائة العالية و الإخلاص في أداء المهام، وهذا ما نعتبره أحد أسرار النجاح.\n
-  internal static let about = L10n.tr("Localizable", "about")
-
+  /// The utility of an application that delivers customer orders from restaurants, cafes, supermarkets, etc.. in the city of Aden.
+  /// Through this application, we seek to gain the trust of our customers from all over the country by adopting a method that focuses on quality and customer satisfaction in the first place.
+  /// Nafaa is one of the first applications that provide this type of service in the city of Aden, through an integrated and coordinated team distinguished by high efficiency and sincerity in performing tasks, and this is what we consider one of the secrets of success.
+  internal static let about = L10n.tr("Localizable", "about", fallback: "The utility of an application that delivers customer orders from restaurants, cafes, supermarkets, etc.. in the city of Aden.\nThrough this application, we seek to gain the trust of our customers from all over the country by adopting a method that focuses on quality and customer satisfaction in the first place.\nNafaa is one of the first applications that provide this type of service in the city of Aden, through an integrated and coordinated team distinguished by high efficiency and sincerity in performing tasks, and this is what we consider one of the secrets of success.")
   internal enum Home {
     internal enum Screen {
-      /// لا يوجد طلبات
-      internal static let noOrders = L10n.tr("Localizable", "home.screen.noOrders")
-      /// سلة الطلبات
-      internal static let title = L10n.tr("Localizable", "home.screen.title")
+      /// there are no requests
+      internal static let noOrders = L10n.tr("Localizable", "home.screen.noOrders", fallback: "there are no requests")
+      /// Localizable.strings
+      ///   Channels
+      /// 
+      ///   Created by Ahmed Refaat on 4/3/20.
+      ///   Copyright © 2020 Ibtikar. All rights reserved.
+      internal static let title = L10n.tr("Localizable", "home.screen.title", fallback: "Order basket")
     }
   }
-
   internal enum Login {
     internal enum Screen {
-      /// عن نغعة
-      internal static let about = L10n.tr("Localizable", "login.screen.about")
-      /// هل انت عميل ؟
-      internal static let client = L10n.tr("Localizable", "login.screen.client")
-      /// تواصل معنا
-      internal static let contact = L10n.tr("Localizable", "login.screen.contact")
-      /// تسجيل الدخول
-      internal static let login = L10n.tr("Localizable", "login.screen.login")
-      /// تسجيل حساب جديد
-      internal static let newLogin = L10n.tr("Localizable", "login.screen.newLogin")
+      /// About Nafaa
+      internal static let about = L10n.tr("Localizable", "login.screen.about", fallback: "About Nafaa")
+      /// Are you a customer?
+      internal static let client = L10n.tr("Localizable", "login.screen.client", fallback: "Are you a customer?")
+      /// Contact us 
+      internal static let contact = L10n.tr("Localizable", "login.screen.contact", fallback: "Contact us ")
+      /// Login
+      internal static let login = L10n.tr("Localizable", "login.screen.login", fallback: "Login")
+      /// Create a new Account
+      internal static let newLogin = L10n.tr("Localizable", "login.screen.newLogin", fallback: "Create a new Account")
     }
   }
-
   internal enum NewOrder {
     internal enum Screen {
-      /// اضافة صورة
-      internal static let chooseImage = L10n.tr("Localizable", "newOrder.screen.chooseImage")
-      /// اختار وقت التسليم
-      internal static let deliveryTime = L10n.tr("Localizable", "newOrder.screen.deliveryTime")
-      /// تم
-      internal static let done = L10n.tr("Localizable", "newOrder.screen.done")
-      /// تمت اضافة صورة
-      internal static let imageChoosen = L10n.tr("Localizable", "newOrder.screen.imageChoosen")
-      /// رقم الهاتف
-      internal static let mobile = L10n.tr("Localizable", "newOrder.screen.mobile")
-      /// الاسم
-      internal static let name = L10n.tr("Localizable", "newOrder.screen.name")
-      /// من اين تريد الطلب
-      internal static let orderPlace = L10n.tr("Localizable", "newOrder.screen.orderPlace")
-      /// عنوان المحل
-      internal static let placeAddress = L10n.tr("Localizable", "newOrder.screen.placeAddress")
-      /// اسم المحل
-      internal static let placeName = L10n.tr("Localizable", "newOrder.screen.placeName")
-      /// رفع الطلب
-      internal static let submit = L10n.tr("Localizable", "newOrder.screen.submit")
-      /// تحديث الموقع
-      internal static let yourLocation = L10n.tr("Localizable", "newOrder.screen.yourLocation")
-      /// طلبك
-      internal static let yourOrder = L10n.tr("Localizable", "newOrder.screen.yourOrder")
+      /// add image
+      internal static let chooseImage = L10n.tr("Localizable", "newOrder.screen.chooseImage", fallback: "add image")
+      /// choose delivery time
+      internal static let deliveryTime = L10n.tr("Localizable", "newOrder.screen.deliveryTime", fallback: "choose delivery time")
+      /// Done
+      internal static let done = L10n.tr("Localizable", "newOrder.screen.done", fallback: "Done")
+      /// Image added Successfully
+      internal static let imageChoosen = L10n.tr("Localizable", "newOrder.screen.imageChoosen", fallback: "Image added Successfully")
+      /// Phone
+      internal static let mobile = L10n.tr("Localizable", "newOrder.screen.mobile", fallback: "Phone")
+      /// Name
+      internal static let name = L10n.tr("Localizable", "newOrder.screen.name", fallback: "Name")
+      /// Where do you want to order from
+      internal static let orderPlace = L10n.tr("Localizable", "newOrder.screen.orderPlace", fallback: "Where do you want to order from")
+      /// Shop Address
+      internal static let placeAddress = L10n.tr("Localizable", "newOrder.screen.placeAddress", fallback: "Shop Address")
+      /// Shop Name
+      internal static let placeName = L10n.tr("Localizable", "newOrder.screen.placeName", fallback: "Shop Name")
+      /// raise a request
+      internal static let submit = L10n.tr("Localizable", "newOrder.screen.submit", fallback: "raise a request")
+      /// Site update
+      internal static let yourLocation = L10n.tr("Localizable", "newOrder.screen.yourLocation", fallback: "Site update")
+      /// Your Order
+      internal static let yourOrder = L10n.tr("Localizable", "newOrder.screen.yourOrder", fallback: "Your Order")
       internal enum Order {
-        /// حدث خطأ حاول فى وقت لاحق !
-        internal static let error = L10n.tr("Localizable", "newOrder.screen.order.error")
-        /// قيد الإنتظار
-        internal static let pending = L10n.tr("Localizable", "newOrder.screen.order.pending")
+        /// An error occurred, try again later!
+        internal static let error = L10n.tr("Localizable", "newOrder.screen.order.error", fallback: "An error occurred, try again later!")
+        /// pending
+        internal static let pending = L10n.tr("Localizable", "newOrder.screen.order.pending", fallback: "pending")
       }
     }
   }
-
   internal enum Order {
     internal enum Screen {
-      /// اطلب الان
-      internal static let newOrder = L10n.tr("Localizable", "order.screen.newOrder")
+      /// Order Now
+      internal static let newOrder = L10n.tr("Localizable", "order.screen.newOrder", fallback: "Order Now")
       internal enum Description {
-        /// توفر منصة نفعة تجربة فريدة للطلب عبر الانترنت بكل سهولة وأمان\nنستقبل طلبك مع كافة التفاصيل الاضافية ونقوم بتوصيله اليك حالا.
-        internal static let newOrder = L10n.tr("Localizable", "order.screen.description.newOrder")
+        /// The Nafaa platform provides a unique online ordering experience with ease and security
+        /// We receive your order with all the additional details and deliver it to you immediately.
+        internal static let newOrder = L10n.tr("Localizable", "order.screen.description.newOrder", fallback: "The Nafaa platform provides a unique online ordering experience with ease and security\nWe receive your order with all the additional details and deliver it to you immediately.")
       }
       internal enum Title {
-        /// طلب جديد
-        internal static let newOrder = L10n.tr("Localizable", "order.screen.title.newOrder")
+        /// New Order
+        internal static let newOrder = L10n.tr("Localizable", "order.screen.title.newOrder", fallback: "New Order")
       }
     }
   }
-
   internal enum Profile {
     internal enum Screen {
-      /// لا يوجد تطبيق واتساب على هاتفك الجوال
-      internal static let noWhatsApp = L10n.tr("Localizable", "profile.screen.noWhatsApp")
-      /// حسابى
-      internal static let title = L10n.tr("Localizable", "profile.screen.title")
+      /// There is no WhatsApp application on your mobile phone
+      internal static let noWhatsApp = L10n.tr("Localizable", "profile.screen.noWhatsApp", fallback: "There is no WhatsApp application on your mobile phone")
+      /// My Account
+      internal static let title = L10n.tr("Localizable", "profile.screen.title", fallback: "My Account")
       internal enum TabSubTitle {
-        /// من نحن ؟
-        internal static let about = L10n.tr("Localizable", "profile.screen.tabSubTitle.about")
-        /// لأى استفسار
-        internal static let contactUs = L10n.tr("Localizable", "profile.screen.tabSubTitle.contactUs")
-        /// الخروج من حسابك والعودة الى صفحة تسجيل الدخول
-        internal static let logout = L10n.tr("Localizable", "profile.screen.tabSubTitle.logout")
-        /// اطلب الان
-        internal static let newOrder = L10n.tr("Localizable", "profile.screen.tabSubTitle.newOrder")
-        /// زيارة الموقع
-        internal static let ourSite = L10n.tr("Localizable", "profile.screen.tabSubTitle.ourSite")
-        /// قيم تجربتك معنا
-        internal static let rateUs = L10n.tr("Localizable", "profile.screen.tabSubTitle.rateUs")
-        /// شارك التطبيق مع اصدقائك
-        internal static let share = L10n.tr("Localizable", "profile.screen.tabSubTitle.share")
+        /// Who we are ?
+        internal static let about = L10n.tr("Localizable", "profile.screen.tabSubTitle.about", fallback: "Who we are ?")
+        /// For any question
+        internal static let contactUs = L10n.tr("Localizable", "profile.screen.tabSubTitle.contactUs", fallback: "For any question")
+        /// Log out of your account and return to the login page
+        internal static let logout = L10n.tr("Localizable", "profile.screen.tabSubTitle.logout", fallback: "Log out of your account and return to the login page")
+        /// Order Now
+        internal static let newOrder = L10n.tr("Localizable", "profile.screen.tabSubTitle.newOrder", fallback: "Order Now")
+        /// Site Visit
+        internal static let ourSite = L10n.tr("Localizable", "profile.screen.tabSubTitle.ourSite", fallback: "Site Visit")
+        /// Rate your experience with us
+        internal static let rateUs = L10n.tr("Localizable", "profile.screen.tabSubTitle.rateUs", fallback: "Rate your experience with us")
+        /// Share the application with your friends
+        internal static let share = L10n.tr("Localizable", "profile.screen.tabSubTitle.share", fallback: "Share the application with your friends")
       }
       internal enum TabTitle {
-        /// حولنا
-        internal static let about = L10n.tr("Localizable", "profile.screen.tabTitle.about")
-        /// تواصل معنا
-        internal static let contactUs = L10n.tr("Localizable", "profile.screen.tabTitle.contactUs")
-        /// تسجيل الخروج
-        internal static let logout = L10n.tr("Localizable", "profile.screen.tabTitle.logout")
-        /// طلب جديد
-        internal static let newOrder = L10n.tr("Localizable", "profile.screen.tabTitle.newOrder")
-        /// موقعنا
-        internal static let ourSite = L10n.tr("Localizable", "profile.screen.tabTitle.ourSite")
-        /// قيمنا
-        internal static let rateUs = L10n.tr("Localizable", "profile.screen.tabTitle.rateUs")
-        /// شاركنا
-        internal static let share = L10n.tr("Localizable", "profile.screen.tabTitle.share")
+        /// about us
+        internal static let about = L10n.tr("Localizable", "profile.screen.tabTitle.about", fallback: "about us")
+        /// Contact us
+        internal static let contactUs = L10n.tr("Localizable", "profile.screen.tabTitle.contactUs", fallback: "Contact us")
+        /// Logout
+        internal static let logout = L10n.tr("Localizable", "profile.screen.tabTitle.logout", fallback: "Logout")
+        /// new Order
+        internal static let newOrder = L10n.tr("Localizable", "profile.screen.tabTitle.newOrder", fallback: "new Order")
+        /// Our Site
+        internal static let ourSite = L10n.tr("Localizable", "profile.screen.tabTitle.ourSite", fallback: "Our Site")
+        /// Rate
+        internal static let rateUs = L10n.tr("Localizable", "profile.screen.tabTitle.rateUs", fallback: "Rate")
+        /// Share
+        internal static let share = L10n.tr("Localizable", "profile.screen.tabTitle.share", fallback: "Share")
       }
     }
   }
-
   internal enum Sign {
     internal enum Screen {
-      /// أو إختر طريقتك المفضلة للتسجيل
-      internal static let chooseWay = L10n.tr("Localizable", "sign.screen.chooseWay")
-      /// البريد الإلكترونى
-      internal static let email = L10n.tr("Localizable", "sign.screen.email")
-      /// الرجاء ملئ كافة الخانات
-      internal static let emptyFields = L10n.tr("Localizable", "sign.screen.emptyFields")
-      /// الإسم الكامل
-      internal static let fullName = L10n.tr("Localizable", "sign.screen.fullName")
-      /// رقم الموبايل
-      internal static let mobile = L10n.tr("Localizable", "sign.screen.mobile")
-      /// كلمة المرور
-      internal static let password = L10n.tr("Localizable", "sign.screen.password")
-      /// تسجيل الدخول
-      internal static let title = L10n.tr("Localizable", "sign.screen.title")
+      /// or choose your preferred method of registration
+      internal static let chooseWay = L10n.tr("Localizable", "sign.screen.chooseWay", fallback: "or choose your preferred method of registration")
+      /// E-Mail
+      internal static let email = L10n.tr("Localizable", "sign.screen.email", fallback: "E-Mail")
+      /// Please fill in all fields
+      internal static let emptyFields = L10n.tr("Localizable", "sign.screen.emptyFields", fallback: "Please fill in all fields")
+      /// Full Name
+      internal static let fullName = L10n.tr("Localizable", "sign.screen.fullName", fallback: "Full Name")
+      /// Phone
+      internal static let mobile = L10n.tr("Localizable", "sign.screen.mobile", fallback: "Phone")
+      /// Password
+      internal static let password = L10n.tr("Localizable", "sign.screen.password", fallback: "Password")
+      /// Login
+      internal static let title = L10n.tr("Localizable", "sign.screen.title", fallback: "Login")
       internal enum New {
-        /// تسجيل حساب جديد
-        internal static let title = L10n.tr("Localizable", "sign.screen.new.title")
+        /// Create a new Account
+        internal static let title = L10n.tr("Localizable", "sign.screen.new.title", fallback: "Create a new Account")
       }
     }
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
-// swiftlint:enable nesting type_body_length type_name
+// swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
 
 // MARK: - Implementation Details
 
 extension L10n {
-  private static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
-    // swiftlint:disable:next nslocalizedstring_key
-    let format = NSLocalizedString(key, tableName: table, bundle: Bundle(for: BundleToken.self), comment: "")
+  private static func tr(_ table: String, _ key: String, _ args: CVarArg..., fallback value: String) -> String {
+    let format = BundleToken.bundle.localizedString(forKey: key, value: value, table: table)
     return String(format: format, locale: Locale.current, arguments: args)
   }
 }
 
-private final class BundleToken {}
+// swiftlint:disable convenience_type
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+// swiftlint:enable convenience_type

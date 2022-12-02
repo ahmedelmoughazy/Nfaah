@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Channels
 
@@ -7,68 +7,67 @@
 */
 
 // MARK: - Home Screen
-"home.screen.title" = "سلة الطلبات";
-"home.screen.noOrders" = "لا يوجد طلبات";
+"home.screen.title" = "Order basket";
+"home.screen.noOrders" = "there are no requests";
 
 // MARK: - Orders Screen
-"order.screen.title.newOrder" = "طلب جديد";
-"order.screen.description.newOrder" = "توفر منصة نفعة تجربة فريدة للطلب عبر الانترنت بكل سهولة وأمان
-نستقبل طلبك مع كافة التفاصيل الاضافية ونقوم بتوصيله اليك حالا.";
-"order.screen.newOrder" = "اطلب الان";
+"order.screen.title.newOrder" = "New Order";
+"order.screen.description.newOrder" = "The Nafaa platform provides a unique online ordering experience with ease and security
+We receive your order with all the additional details and deliver it to you immediately.";
+"order.screen.newOrder" = "Order Now";
 
 // MARK: - New Order
-"newOrder.screen.name" = "الاسم";
-"newOrder.screen.mobile" = "رقم الهاتف";
-"newOrder.screen.orderPlace" = "من اين تريد الطلب";
-"newOrder.screen.placeName" = "اسم المحل";
-"newOrder.screen.placeAddress" = "عنوان المحل";
-"newOrder.screen.yourOrder" = "طلبك";
-"newOrder.screen.chooseImage" = "اضافة صورة";
-"newOrder.screen.imageChoosen" = "تمت اضافة صورة";
-"newOrder.screen.deliveryTime" = "اختار وقت التسليم";
-"newOrder.screen.done" = "تم";
-"newOrder.screen.yourLocation" = "تحديث الموقع";
-"newOrder.screen.submit" = "رفع الطلب";
-"newOrder.screen.order.pending" = "قيد الإنتظار";
-"newOrder.screen.order.error" = "حدث خطأ حاول فى وقت لاحق !";
+"newOrder.screen.name" = "Name";
+"newOrder.screen.mobile" = "Phone";
+"newOrder.screen.orderPlace" = "Where do you want to order from";
+"newOrder.screen.placeName" = "Shop Name";
+"newOrder.screen.placeAddress" = "Shop Address";
+"newOrder.screen.yourOrder" = "Your Order";
+"newOrder.screen.chooseImage" = "add image";
+"newOrder.screen.imageChoosen" = "Image added Successfully";
+"newOrder.screen.deliveryTime" = "choose delivery time";
+"newOrder.screen.done" = "Done";
+"newOrder.screen.yourLocation" = "Site update";
+"newOrder.screen.submit" = "raise a request";
+"newOrder.screen.order.pending" = "pending";
+"newOrder.screen.order.error" = "An error occurred, try again later!";
 
 // MARK: - Login Screen
-"login.screen.about" = "عن نغعة";
-"login.screen.contact" = "تواصل معنا";
-"login.screen.login" = "تسجيل الدخول";
-"login.screen.newLogin" = "تسجيل حساب جديد";
-"login.screen.client" = "هل انت عميل ؟";
+"login.screen.about" = "About Nafaa";
+"login.screen.contact" = "Contact us ";
+"login.screen.login" = "Login";
+"login.screen.newLogin" = "Create a new Account";
+"login.screen.client" = "Are you a customer?";
 
 // MARK: - Sign Screen
-"sign.screen.title" = "تسجيل الدخول";
-"sign.screen.new.title" = "تسجيل حساب جديد";
-"sign.screen.fullName" = "الإسم الكامل";
-"sign.screen.mobile" = "رقم الموبايل";
-"sign.screen.email" = "البريد الإلكترونى";
-"sign.screen.password" = "كلمة المرور";
-"sign.screen.chooseWay" = "أو إختر طريقتك المفضلة للتسجيل";
-"sign.screen.emptyFields" = "الرجاء ملئ كافة الخانات";
+"sign.screen.title" = "Login";
+"sign.screen.new.title" = "Create a new Account";
+"sign.screen.fullName" = "Full Name";
+"sign.screen.mobile" = "Phone";
+"sign.screen.email" = "E-Mail";
+"sign.screen.password" = "Password";
+"sign.screen.chooseWay" = "or choose your preferred method of registration";
+"sign.screen.emptyFields" = "Please fill in all fields";
 
 // MARK: - Profile Screen
-"profile.screen.title" = "حسابى";
-"profile.screen.tabTitle.newOrder" = "طلب جديد";
-"profile.screen.tabSubTitle.newOrder" = "اطلب الان";
-"profile.screen.tabTitle.ourSite" = "موقعنا";
-"profile.screen.tabSubTitle.ourSite" = "زيارة الموقع";
-"profile.screen.tabTitle.rateUs" = "قيمنا";
-"profile.screen.tabSubTitle.rateUs" = "قيم تجربتك معنا";
-"profile.screen.tabTitle.share" = "شاركنا";
-"profile.screen.tabSubTitle.share" = "شارك التطبيق مع اصدقائك";
-"profile.screen.tabTitle.contactUs" = "تواصل معنا";
-"profile.screen.tabSubTitle.contactUs" = "لأى استفسار";
-"profile.screen.tabTitle.about" = "حولنا";
-"profile.screen.tabSubTitle.about" = "من نحن ؟";
-"profile.screen.tabTitle.logout" = "تسجيل الخروج";
-"profile.screen.tabSubTitle.logout" = "الخروج من حسابك والعودة الى صفحة تسجيل الدخول";
-"profile.screen.noWhatsApp" = "لا يوجد تطبيق واتساب على هاتفك الجوال";
+"profile.screen.title" = "My Account";
+"profile.screen.tabTitle.newOrder" = "new Order";
+"profile.screen.tabSubTitle.newOrder" = "Order Now";
+"profile.screen.tabTitle.ourSite" = "Our Site";
+"profile.screen.tabSubTitle.ourSite" = "Site Visit";
+"profile.screen.tabTitle.rateUs" = "Rate";
+"profile.screen.tabSubTitle.rateUs" = "Rate your experience with us";
+"profile.screen.tabTitle.share" = "Share";
+"profile.screen.tabSubTitle.share" = "Share the application with your friends";
+"profile.screen.tabTitle.contactUs" = "Contact us";
+"profile.screen.tabSubTitle.contactUs" = "For any question";
+"profile.screen.tabTitle.about" = "about us";
+"profile.screen.tabSubTitle.about" = "Who we are ?";
+"profile.screen.tabTitle.logout" = "Logout";
+"profile.screen.tabSubTitle.logout" = "Log out of your account and return to the login page";
+"profile.screen.noWhatsApp" = "There is no WhatsApp application on your mobile phone";
 
 // MARK: - About
-"about" = "نفعة تطبيق يعمل على توصيل طلبات العملاء من المطاعم والمقاهي، والسوبر ماركات الخ.. في مدينة عدن.
-ونسعى من خلال هذا التطبيق لنيل ثقة المتعاملين معنا من كافة أنحاء البلاد عبر اعتماد أسلوب يتركز على الجودة و إرضاء العملاء بالدرجة الأولى.
-نفعة من أوائل التطبيقات التي تقدم هذا النوع من الخدمات في مدينة عدن، وذلك من خلال فريق متكامل و متناسق و متميز بالكفائة العالية و الإخلاص في أداء المهام، وهذا ما نعتبره أحد أسرار النجاح.
-";
+"about" = "The utility of an application that delivers customer orders from restaurants, cafes, supermarkets, etc.. in the city of Aden.
+Through this application, we seek to gain the trust of our customers from all over the country by adopting a method that focuses on quality and customer satisfaction in the first place.
+Nafaa is one of the first applications that provide this type of service in the city of Aden, through an integrated and coordinated team distinguished by high efficiency and sincerity in performing tasks, and this is what we consider one of the secrets of success.";

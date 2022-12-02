@@ -32,6 +32,6 @@ class LoginPresenter: BasePresenter, LoginPresenterProtocol {
     }
 
     func showErrorMessage(error: String) {
-        view?.showErrorMassege?(errorMessage: error)
+        view?.showErrorMessage?(errorMessage: error)
     }
 }

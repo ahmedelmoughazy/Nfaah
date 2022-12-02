@@ -116,7 +116,7 @@ extension UserLoginRegisterSceneViewController {
                 print("Not Valid Type")
             }
         } else {
-            showErrorMassege(errorMessage: L10n.Sign.Screen.emptyFields)
+            showErrorMessage(errorMessage: L10n.Sign.Screen.emptyFields)
         }
         
     }
@@ -165,10 +165,16 @@ extension UserLoginRegisterSceneViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
-            //successful login
+
             strongSelf.hideLoading()
+            guard error == nil else {
+                strongSelf.showErrorMessage(errorMessage: error!.localizedDescription)
+                return
+            }
+
+            //successful login
             let user = User(email: email, name: authResult?.user.displayName)
-            strongSelf.presenter.logUserIn(user: user)
+            strongSelf.presenter.signIn(with: user)
         }
     }
     
@@ -177,7 +183,7 @@ extension UserLoginRegisterSceneViewController {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             guard error == nil else {
                 self.hideLoading()
-                self.showErrorMassege(errorMessage: error!.localizedDescription)
+                self.showErrorMessage(errorMessage: error!.localizedDescription)
                 return
             }
             //successful login
@@ -186,7 +192,7 @@ extension UserLoginRegisterSceneViewController {
             changeRequest?.commitChanges { (error) in
                 self.hideLoading()
                 let user = User(email: email, name: authResult?.user.displayName, phone: self.mobileTextField.text)
-                self.presenter.logUserIn(user: user)
+                self.presenter.signIn(with: user)
             }
         }
     }
@@ -201,7 +207,7 @@ extension UserLoginRegisterSceneViewController {
                                 name: authResult?.user.displayName,
                                 image: authResult?.user.photoURL?.absoluteString,
                                 phone: authResult?.user.phoneNumber)
-                self.presenter.logUserIn(user: user)
+                self.presenter.signUp(with: user)
             }
         }
     }
@@ -360,7 +366,7 @@ extension UserLoginRegisterSceneViewController: ASAuthorizationControllerDelegat
                 changeRequest?.displayName = userName
                 changeRequest?.commitChanges { (error) in
                 }
-                self.presenter.logUserIn(user: user)
+                self.presenter.signUp(with: user)
             }
         }
     }

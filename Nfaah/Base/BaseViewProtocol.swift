@@ -35,7 +35,7 @@ protocol ViewFetchable {
     optional func loadDataFailed(with error: Error?)
     
     @objc
-    optional func showErrorMassege(errorMessage: String)
+    optional func showErrorMessage(errorMessage: String)
 }
 
 extension ViewLoadable where Self: UIViewController {
@@ -52,7 +52,7 @@ extension ViewLoadable where Self: UIViewController {
         
     }
     
-    func showErrorMassege(errorMessage: String) {
+    func showErrorMessage(errorMessage: String) {
         
     }
 
