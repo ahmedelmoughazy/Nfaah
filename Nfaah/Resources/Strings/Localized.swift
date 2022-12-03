@@ -95,11 +95,19 @@ internal enum L10n {
       internal static let noWhatsApp = L10n.tr("Localizable", "profile.screen.noWhatsApp", fallback: "There is no WhatsApp application on your mobile phone")
       /// My Account
       internal static let title = L10n.tr("Localizable", "profile.screen.title", fallback: "My Account")
+      internal enum Alert {
+        /// All user data will be lost.
+        internal static let subTitle = L10n.tr("Localizable", "profile.screen.alert.subTitle", fallback: "All user data will be lost.")
+        /// Are you sure ?
+        internal static let title = L10n.tr("Localizable", "profile.screen.alert.title", fallback: "Are you sure ?")
+      }
       internal enum TabSubTitle {
         /// Who we are ?
         internal static let about = L10n.tr("Localizable", "profile.screen.tabSubTitle.about", fallback: "Who we are ?")
         /// For any question
         internal static let contactUs = L10n.tr("Localizable", "profile.screen.tabSubTitle.contactUs", fallback: "For any question")
+        /// Delete your account and return to the login page
+        internal static let deleteAccount = L10n.tr("Localizable", "profile.screen.tabSubTitle.deleteAccount", fallback: "Delete your account and return to the login page")
         /// Log out of your account and return to the login page
         internal static let logout = L10n.tr("Localizable", "profile.screen.tabSubTitle.logout", fallback: "Log out of your account and return to the login page")
         /// Order Now
@@ -116,6 +124,8 @@ internal enum L10n {
         internal static let about = L10n.tr("Localizable", "profile.screen.tabTitle.about", fallback: "about us")
         /// Contact us
         internal static let contactUs = L10n.tr("Localizable", "profile.screen.tabTitle.contactUs", fallback: "Contact us")
+        /// Delete Account
+        internal static let deleteAccount = L10n.tr("Localizable", "profile.screen.tabTitle.deleteAccount", fallback: "Delete Account")
         /// Logout
         internal static let logout = L10n.tr("Localizable", "profile.screen.tabTitle.logout", fallback: "Logout")
         /// new Order

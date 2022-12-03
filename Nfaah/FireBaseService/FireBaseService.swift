@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import FirebaseAuth
 
 class FireBaseService {
     
@@ -37,6 +38,17 @@ class FireBaseService {
                 completion(false)
             }
         }
+    }
+    
+    func deleteFromDataBase(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+        databaseReference.child("Users").child(user.uid ?? "").removeValue(completionBlock: { error, ref in
+            if error == nil {
+                Auth.auth().currentUser?.delete()
+                completion(.success)
+            } else {
+                completion(.failure(error!))
+            }
+        })
     }
     
     func addToDataBase(order: Order, completion: @escaping (Bool) -> Void) {

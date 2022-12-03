@@ -9,6 +9,7 @@
 import Foundation
 
 class ProfileModel: BaseModel, ProfileModelProtocol {
+    
     var profileItems = [ProfileItem]()
     
     func createProfileItems() -> [ProfileItem] {
@@ -45,6 +46,11 @@ class ProfileModel: BaseModel, ProfileModelProtocol {
                                 subTitle: L10n.Profile.Screen.TabSubTitle.about,
                                 type: .about)
         
+        let deleteAccount = ProfileItem(image: Asset.Images.delete.name,
+                                        title: L10n.Profile.Screen.TabTitle.deleteAccount,
+                                        subTitle: L10n.Profile.Screen.TabSubTitle.deleteAccount,
+                                        type: .delete)
+        
         let logOut = ProfileItem(image: Asset.Images.logout.name,
                                  title: L10n.Profile.Screen.TabTitle.logout,
                                  subTitle: L10n.Profile.Screen.TabSubTitle.logout,
@@ -56,6 +62,7 @@ class ProfileModel: BaseModel, ProfileModelProtocol {
                         share,
                         contactUs,
                         about,
+                        deleteAccount,
                         logOut]
         self.profileItems = profileItems
         
@@ -68,5 +75,9 @@ class ProfileModel: BaseModel, ProfileModelProtocol {
         guard index < self.profileItems.count else { return nil }
         return self.profileItems[index]
         
+    }
+    
+    func deleteUserAccount(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+        FireBaseService.shared.deleteFromDataBase(user: user) { completion($0) }
     }
 }

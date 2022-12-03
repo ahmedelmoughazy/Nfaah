@@ -39,6 +39,7 @@ extension OrderViewController {
         
         descriptionLabel.font = FontFamily._29LTAzer.regular.font(size: 16)
         descriptionLabel.text = L10n.Order.Screen.Description.newOrder
+        descriptionLabel.adjustsFontSizeToFitWidth = true
         
         newOrderButton.setTitle(L10n.Order.Screen.newOrder, for: .normal)
         newOrderButton.titleLabel?.font = FontFamily._29LTAzer.medium.font(size: 14)

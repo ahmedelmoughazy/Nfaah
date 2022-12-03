@@ -16,6 +16,7 @@ enum ProfileItemType {
     case share
     case contactUs
     case about
+    case delete
     case logOut
 }
 

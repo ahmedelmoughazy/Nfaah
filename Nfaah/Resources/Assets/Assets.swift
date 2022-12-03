@@ -35,6 +35,7 @@ internal enum Asset {
     internal static let checklist2 = ImageAsset(name: "checklist (2)")
     internal static let clock = ImageAsset(name: "clock")
     internal static let close = ImageAsset(name: "close")
+    internal static let delete = ImageAsset(name: "delete")
     internal static let fries = ImageAsset(name: "fries")
     internal static let group = ImageAsset(name: "group")
     internal static let icMail = ImageAsset(name: "icMail")

@@ -71,10 +71,8 @@ extension ProfileCoordinator: ProfileVCDelegate {
     func share(vc: UIActivityViewController) {
         self.appRouter.present(vc, animated: true)
     }
-}
-/*
-extension UIActivityViewController: Showable {
-    func toShowable() -> UIViewController {
-        return UIViewController()
+    
+    func deleteAccount() {
+        presenter?.presentAlertView()
     }
-}*/
+}

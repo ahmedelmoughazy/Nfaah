@@ -86,6 +86,22 @@ extension ProfileViewController {
 
 // MARK: - Protocal
 extension ProfileViewController: ProfileViewProtocol {
+    func presentAlertView() {
+        let deleteAccountAlert = UIAlertController(title: L10n.Profile.Screen.Alert.title,
+                                                   message: L10n.Profile.Screen.Alert.subTitle, preferredStyle: .alert)
+
+        deleteAccountAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+              print("Handle Cancel Logic here")
+        })
+
+        deleteAccountAlert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+            let currentUser = User(email: Auth.auth().currentUser?.email, name: Auth.auth().currentUser?.displayName)
+            self.presenter.deleteUserAccount(user: currentUser)
+        })
+
+        present(deleteAccountAlert, animated: true, completion: nil)
+    }
+    
     func renderViewWith(items: [ProfileItem]) {
         adaptor.add(items: items)
     }

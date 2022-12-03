@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderViewController" customModule="نفعة" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderViewController" customModule="Nafaa" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="tVb-fG-KRW" id="PKB-FV-qrJ"/>
                 <outlet property="newOrderButton" destination="nQa-mQ-q0e" id="LYo-xh-aJk"/>
@@ -38,15 +39,15 @@
                         <constraint firstItem="fDN-HA-zb1" firstAttribute="centerX" secondItem="bYg-f8-6mD" secondAttribute="centerX" id="Y7w-IP-lSD"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVb-fG-KRW">
-                    <rect key="frame" x="187.66666666666666" y="397.66666666666669" width="0.0" height="0.0"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVb-fG-KRW">
+                    <rect key="frame" x="20" y="397.66666666666669" width="335" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpA-kX-VYJ">
                     <rect key="frame" x="20" y="405.66666666666669" width="335" height="1"/>
-                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="B5f-O1-t2C"/>
                     </constraints>
@@ -65,9 +66,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="tVb-fG-KRW" firstAttribute="trailing" secondItem="GpA-kX-VYJ" secondAttribute="trailing" id="2TU-ie-bWB"/>
                 <constraint firstItem="tVb-fG-KRW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2sA-7K-4SA"/>
                 <constraint firstAttribute="trailing" secondItem="bYg-f8-6mD" secondAttribute="trailing" id="8fF-VP-qnR"/>
                 <constraint firstItem="nQa-mQ-q0e" firstAttribute="top" secondItem="GpA-kX-VYJ" secondAttribute="bottom" constant="8" id="EyP-cE-KGq"/>
+                <constraint firstItem="tVb-fG-KRW" firstAttribute="leading" secondItem="GpA-kX-VYJ" secondAttribute="leading" id="GCx-Og-YUd"/>
                 <constraint firstItem="GpA-kX-VYJ" firstAttribute="top" secondItem="tVb-fG-KRW" secondAttribute="bottom" constant="8" id="L9C-p3-vWQ"/>
                 <constraint firstItem="bYg-f8-6mD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QXq-Ja-JGn"/>
                 <constraint firstItem="GpA-kX-VYJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XKQ-FC-kQA"/>
@@ -84,5 +87,8 @@
         <namedColor name="BahamaBlue">
             <color red="0.12549019607843137" green="0.28627450980392155" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

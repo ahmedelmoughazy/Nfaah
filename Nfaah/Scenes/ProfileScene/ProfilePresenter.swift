@@ -46,6 +46,25 @@ class ProfilePresenter: BasePresenter, ProfilePresenterProtocol {
             delegate?.openAboutScreen()
         case .logOut:
             delegate?.logout()
+        case .delete:
+            delegate?.deleteAccount()
+        }
+    }
+    
+    func presentAlertView() {
+        view.presentAlertView()
+    }
+
+    func deleteUserAccount(user: User) {
+        self.view.showLoading?(allowNavigation: false)
+        model.deleteUserAccount(user: user) { result in
+            self.view.hideLoading?()
+            switch result {
+            case .success:
+                self.delegate?.logout()
+            case .failure(let error):
+                self.showErrorMessage(error: error.localizedDescription)
+            }
         }
     }
     

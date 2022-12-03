@@ -63,9 +63,13 @@ We receive your order with all the additional details and deliver it to you imme
 "profile.screen.tabSubTitle.contactUs" = "For any question";
 "profile.screen.tabTitle.about" = "about us";
 "profile.screen.tabSubTitle.about" = "Who we are ?";
+"profile.screen.tabTitle.deleteAccount" = "Delete Account";
+"profile.screen.tabSubTitle.deleteAccount" = "Delete your account and return to the login page";
 "profile.screen.tabTitle.logout" = "Logout";
 "profile.screen.tabSubTitle.logout" = "Log out of your account and return to the login page";
 "profile.screen.noWhatsApp" = "There is no WhatsApp application on your mobile phone";
+"profile.screen.alert.title" = "Are you sure ?";
+"profile.screen.alert.subTitle" = "All user data will be lost.";
 
 // MARK: - About
 "about" = "The utility of an application that delivers customer orders from restaurants, cafes, supermarkets, etc.. in the city of Aden.
